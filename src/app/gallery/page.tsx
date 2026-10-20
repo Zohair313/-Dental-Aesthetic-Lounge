@@ -10,7 +10,7 @@ import { Section } from "@/components/ui/Section";
 export const metadata: Metadata = {
   title: "Before & After Gallery",
   description:
-    "Interactive before and after case studies from Dental & Aesthetic Lounge, Johar Town Lahore â€” veneers, aligners, whitening, laser pigmentation and skin rejuvenation.",
+    "Interactive before and after case studies from Dental & Aesthetic Lounge, Johar Town Lahore — veneers, aligners, whitening, laser pigmentation and skin rejuvenation.",
   alternates: { canonical: "/gallery" },
 };
 
@@ -18,7 +18,7 @@ const notes = [
   {
     icon: MousePointerClick,
     title: "Drag to compare",
-    copy: "Every case opens with a slider â€” drag it (or use the arrow keys) to wipe between before and after.",
+    copy: "Every case opens with a slider — drag it (or use the arrow keys) to wipe between before and after.",
   },
   {
     icon: Camera,
@@ -89,7 +89,7 @@ export default function GalleryPage() {
           cases shown here are illustrative renders used while the clinic&apos;s
           patient photo archive is being digitised and consent-cleared. Once
           real, consented photographs are supplied, this gallery automatically
-          switches to them â€” no code changes required.
+          switches to them — no code changes required.
         </div>
       </Section>
 

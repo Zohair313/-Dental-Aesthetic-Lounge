@@ -22,8 +22,8 @@ const siteUrl = "https://dentalaestheticlounge.pk";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Dental & Aesthetic Lounge â€” Dental & Skin Clinic in Johar Town, Lahore",
-    template: "%s â€” Dental & Aesthetic Lounge",
+    default: "Dental & Aesthetic Lounge — Dental & Skin Clinic in Johar Town, Lahore",
+    template: "%s — Dental & Aesthetic Lounge",
   },
   description:
     "Dental & Aesthetic Lounge is a 5-star rated dental & skin clinic in Johar Town, Lahore. Veneers, aligners, whitening, implants, laser skin rejuvenation and more. Book an appointment: +92 303 017 1000.",
@@ -39,9 +39,9 @@ export const metadata: Metadata = {
     "Dental & Aesthetic Lounge",
   ],
   openGraph: {
-    title: "Dental & Aesthetic Lounge â€” Dental & Skin Clinic, Johar Town Lahore",
+    title: "Dental & Aesthetic Lounge — Dental & Skin Clinic, Johar Town Lahore",
     description:
-      "5â˜… rated dental & skin clinic in Johar Town, Lahore. Smile design, aligners, whitening, implants, laser rejuvenation and more.",
+      "5★ rated dental & skin clinic in Johar Town, Lahore. Smile design, aligners, whitening, implants, laser rejuvenation and more.",
     url: siteUrl,
     siteName: clinic.name,
     locale: "en_PK",
@@ -51,14 +51,14 @@ export const metadata: Metadata = {
         url: "/img/og-image.jpg",
         width: 1600,
         height: 1200,
-        alt: "Dental & Aesthetic Lounge â€” Johar Town, Lahore",
+        alt: "Dental & Aesthetic Lounge — Johar Town, Lahore",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dental & Aesthetic Lounge â€” Johar Town, Lahore",
-    description: "5â˜… rated dental & skin clinic in Johar Town, Lahore.",
+    title: "Dental & Aesthetic Lounge — Johar Town, Lahore",
+    description: "5★ rated dental & skin clinic in Johar Town, Lahore.",
     images: ["/img/og-image.jpg"],
   },
   robots: { index: true, follow: true },

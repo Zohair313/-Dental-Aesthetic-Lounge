@@ -48,7 +48,7 @@ const categories: { key: ServiceCategory; label: string; blurb: string }[] = [
     key: "dental",
     label: "Dental Treatments",
     blurb:
-      "General, cosmetic and orthodontic dentistry delivered with modern equipment â€” from routine cleaning to complete smile makeovers.",
+      "General, cosmetic and orthodontic dentistry delivered with modern equipment — from routine cleaning to complete smile makeovers.",
   },
   {
     key: "skin",
@@ -171,7 +171,7 @@ export default function ServicesPage() {
           <SectionHeader
             eyebrow="How it works"
             title="Your treatment journey"
-            description="A simple, transparent process â€” including the session tracking our multi-visit treatments are built around."
+            description="A simple, transparent process — including the session tracking our multi-visit treatments are built around."
           />
         </Reveal>
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

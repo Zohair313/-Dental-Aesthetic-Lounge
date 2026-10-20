@@ -58,7 +58,7 @@ export default function HomePage() {
           <SectionHeader
             eyebrow="Our treatments"
             title="Specialised dental & skin services"
-            description="From digital smile design to medical-grade laser therapies â€” every treatment is delivered with modern equipment and a personalised plan."
+            description="From digital smile design to medical-grade laser therapies — every treatment is delivered with modern equipment and a personalised plan."
           />
         </Reveal>
         <div className="mt-12">
@@ -94,7 +94,7 @@ export default function HomePage() {
           <SectionHeader
             eyebrow="Inside the lounge"
             title="Clean, calm and built for comfort"
-            description="Modern treatment suites, hospital-grade sterilisation and a lounge-style waiting area â€” designed so every visit feels easy."
+            description="Modern treatment suites, hospital-grade sterilisation and a lounge-style waiting area — designed so every visit feels easy."
           />
         </Reveal>
         <div className="mt-12">
@@ -115,7 +115,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* Spotlight â€” smile & kids */}
+      {/* Spotlight — smile & kids */}
       <Section size="sm">
         <div className="grid gap-6 lg:grid-cols-2">
           <Reveal>
@@ -124,7 +124,7 @@ export default function HomePage() {
               alt="A bright, even smile after veneer treatment"
               eyebrow="Smile design"
               title="A smile that still looks like you"
-              copy="Digital previews, layered porcelain and a shade matched to your face â€” natural results, never overdone."
+              copy="Digital previews, layered porcelain and a shade matched to your face — natural results, never overdone."
               href="/services"
               linkLabel="Explore smile design"
             />
@@ -135,7 +135,7 @@ export default function HomePage() {
               alt="Friendly kids dentistry illustration at the clinic"
               eyebrow="Family dentistry"
               title="Gentle visits for little patients"
-              copy="Calm, child-friendly appointments â€” check-ups, fluoride care and habits that last a lifetime."
+              copy="Calm, child-friendly appointments — check-ups, fluoride care and habits that last a lifetime."
               href="/contact#book"
               linkLabel="Book a family visit"
             />
