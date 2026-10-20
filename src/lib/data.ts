@@ -21,6 +21,10 @@ export const clinic = {
     full: "Opposite G1 Market, Block G, Phase 1, Johar Town, Lahore, Pakistan",
   },
   mapsQuery: "Dental & Aesthetic Lounge, Opposite G1 Market, Block G, Phase 1, Johar Town, Lahore",
+  // Decoded from the Google Plus Code "F7GJ+38 Lahore" → full code 8J3PF7GJ+38.
+  // TODO: verify the pin against the clinic's actual Google Maps listing.
+  geo: { lat: 31.475188, lng: 74.280813 },
+  plusCode: "F7GJ+38",
   rating: { value: 5.0, count: 45 },
   // TODO: verify actual clinic timings
   hours: [
@@ -277,19 +281,52 @@ export const team = [
     name: "Dr. Ayesha Khan",
     role: "Dental Surgeon & Smile Design Specialist",
     qualifications: "BDS, FCPS (Prosthodontics)",
+    photo: "/img/doctor-1.jpg",
     focus: ["Veneers & Smile Design", "Implants", "Crowns & Bridges"],
   },
   {
     name: "Dr. Bilal Ahmed",
     role: "Orthodontist",
     qualifications: "BDS, MSc Orthodontics",
+    photo: "/img/doctor-2.jpg",
     focus: ["Clear Aligners", "Braces", "Retention & Relapse Cases"],
   },
   {
     name: "Dr. Hina Shahid",
     role: "Aesthetic Physician",
     qualifications: "MBBS, Diploma in Dermatology",
+    photo: "/img/doctor-3.jpg",
     focus: ["Laser Rejuvenation", "Pigmentation", "Anti-Aging Protocols"],
+  },
+] as const;
+
+/* ── Clinic gallery imagery (generated artwork in /public/img) ───────────── */
+
+export const clinicPhotos = [
+  {
+    src: "/img/clinic-interior.jpg",
+    alt: "Reception area of Dental & Aesthetic Lounge",
+    label: "Reception",
+  },
+  {
+    src: "/img/dental-room.jpg",
+    alt: "Dental treatment room with modern dental chair",
+    label: "Dental Suite",
+  },
+  {
+    src: "/img/laser-room.jpg",
+    alt: "Laser skin treatment room",
+    label: "Aesthetic Suite",
+  },
+  {
+    src: "/img/instruments.jpg",
+    alt: "Sterilised dental instruments on a tray",
+    label: "Sterilisation",
+  },
+  {
+    src: "/img/clinic-facade.jpg",
+    alt: "Clinic exterior with signage",
+    label: "Our Clinic",
   },
 ] as const;
 

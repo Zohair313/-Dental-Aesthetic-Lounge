@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Quote } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { Stars } from "./Stars";
@@ -85,29 +86,33 @@ export function Team() {
       <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {team.map((m, i) => (
           <Reveal key={m.name} delay={i * 90}>
-            <article className="card flex h-full flex-col p-7 text-center sm:text-left">
-              <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-gold-soft to-sand font-display text-2xl font-semibold text-gold-dark sm:mx-0">
-                {m.name
-                  .split(" ")
-                  .slice(-2)
-                  .map((w) => w[0])
-                  .join("")}
+            <article className="card group flex h-full flex-col overflow-hidden">
+              <div className="relative aspect-[4/3.4] w-full overflow-hidden bg-sand">
+                <Image
+                  src={m.photo}
+                  alt={`${m.name} — ${m.role}`}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                />
               </div>
-              <h3 className="mt-5 font-display text-xl font-semibold text-ink">
-                {m.name}
-              </h3>
-              <p className="mt-1 text-sm font-medium text-gold">{m.role}</p>
-              <p className="mt-1 text-[13px] text-muted">{m.qualifications}</p>
-              <ul className="mt-4 flex flex-wrap gap-2">
-                {m.focus.map((f) => (
-                  <li
-                    key={f}
-                    className="rounded-full bg-sand px-3 py-1 text-[12px] font-medium text-ink-soft"
-                  >
-                    {f}
-                  </li>
-                ))}
-              </ul>
+              <div className="flex flex-1 flex-col p-7">
+                <h3 className="font-display text-xl font-semibold text-ink">
+                  {m.name}
+                </h3>
+                <p className="mt-1 text-sm font-medium text-gold">{m.role}</p>
+                <p className="mt-1 text-[13px] text-muted">{m.qualifications}</p>
+                <ul className="mt-4 flex flex-wrap gap-2">
+                  {m.focus.map((f) => (
+                    <li
+                      key={f}
+                      className="rounded-full bg-sand px-3 py-1 text-[12px] font-medium text-ink-soft"
+                    >
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </article>
           </Reveal>
         ))}

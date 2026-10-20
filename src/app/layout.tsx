@@ -46,11 +46,20 @@ export const metadata: Metadata = {
     siteName: clinic.name,
     locale: "en_PK",
     type: "website",
+    images: [
+      {
+        url: "/img/og-image.jpg",
+        width: 1600,
+        height: 1200,
+        alt: "Dental & Aesthetic Lounge — Johar Town, Lahore",
+      },
+    ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Dental & Aesthetic Lounge — Johar Town, Lahore",
     description: "5★ rated dental & skin clinic in Johar Town, Lahore.",
+    images: ["/img/og-image.jpg"],
   },
   robots: { index: true, follow: true },
   alternates: { canonical: "/" },
@@ -68,6 +77,12 @@ const jsonLd = {
     addressLocality: "Johar Town, Lahore",
     addressCountry: "PK",
   },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: clinic.geo.lat,
+    longitude: clinic.geo.lng,
+  },
+  hasMap: `https://www.google.com/maps?q=${clinic.geo.lat},${clinic.geo.lng}`,
   aggregateRating: {
     "@type": "AggregateRating",
     ratingValue: String(clinic.rating.value),

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Clock, Repeat, ShieldCheck, Wallet, Check } from "lucide-react";
 import { PageHeader } from "@/components/PageHeader";
 import { ServicesGrid } from "@/components/ServicesGrid";
@@ -74,6 +75,21 @@ export default function ServicesPage() {
               description={cat.blurb}
               align="left"
             />
+          </Reveal>
+          <Reveal delay={80}>
+            <div className="relative mt-8 h-56 overflow-hidden rounded-3xl border border-ink/8 bg-sand sm:h-72">
+              <Image
+                src={catIndex === 0 ? "/img/dental-room.jpg" : "/img/laser-room.jpg"}
+                alt={
+                  catIndex === 0
+                    ? "Dental treatment room at Dental & Aesthetic Lounge"
+                    : "Laser skin treatment room at Dental & Aesthetic Lounge"
+                }
+                fill
+                sizes="(max-width: 1152px) 100vw, 1152px"
+                className="object-cover"
+              />
+            </div>
           </Reveal>
           <div className="mt-10">
             <ServicesGrid category={cat.key} />

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Check, Sparkles } from "lucide-react";
 import { Hero } from "@/components/Hero";
+import { ClinicGallery } from "@/components/ClinicGallery";
 import { ServicesGrid } from "@/components/ServicesGrid";
 import { GalleryGrid } from "@/components/GalleryGrid";
 import { ContactSection } from "@/components/ContactSection";
@@ -83,6 +84,20 @@ export default function HomePage() {
           <Link href="/gallery" className="btn-gold">
             Open the full gallery
           </Link>
+        </div>
+      </section>
+
+      {/* Inside the clinic */}
+      <section className="container-page py-10">
+        <Reveal>
+          <SectionHeading
+            eyebrow="Inside the lounge"
+            title="Clean, calm and built for comfort"
+            description="Modern treatment suites, hospital-grade sterilisation and a lounge-style waiting area — designed so every visit feels easy."
+          />
+        </Reveal>
+        <div className="mt-12">
+          <ClinicGallery />
         </div>
       </section>
 

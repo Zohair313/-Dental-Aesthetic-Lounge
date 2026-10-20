@@ -96,7 +96,9 @@ export function ContactSection({ withForm = true }: { withForm?: boolean }) {
         <div className="card overflow-hidden p-0">
           <iframe
             title={`Map to ${clinic.name}`}
-            src={`https://www.google.com/maps?q=${encodeURIComponent(clinic.mapsQuery)}&output=embed`}
+            src={`https://www.google.com/maps?q=${encodeURIComponent(
+              `${clinic.geo.lat},${clinic.geo.lng}`,
+            )}&z=17&output=embed`}
             className="h-80 w-full border-0"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
