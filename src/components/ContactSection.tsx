@@ -1,4 +1,4 @@
-import { Clock, MapPin, MessageCircle, Phone } from "lucide-react";
+import { Clock, MapPin, MessageCircle, Phone, Star } from "lucide-react";
 import { BookingForm } from "./BookingForm";
 import { ButtonAnchor } from "./ui/Button";
 import { IconTile } from "./ui/IconTile";
@@ -73,13 +73,14 @@ export function ContactSection({ withForm = true }: { withForm?: boolean }) {
           ))}
 
           <li className="flex gap-4">
-            <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gold-soft">
-              <Stars value={clinic.rating.value} size={15} />
-            </span>
+            <IconTile icon={Star} />
             <div>
-              <p className="text-sm font-semibold text-ink">
-                {clinic.rating.value.toFixed(1)} rating
-              </p>
+              <div className="flex items-center gap-2">
+                <p className="text-sm font-semibold text-ink">
+                  {clinic.rating.value.toFixed(1)} rating
+                </p>
+                <Stars value={clinic.rating.value} size={14} />
+              </div>
               <p className="mt-0.5 text-sm text-muted">
                 Based on {clinic.rating.count} patient reviews
               </p>

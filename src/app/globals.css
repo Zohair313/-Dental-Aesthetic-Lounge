@@ -120,6 +120,8 @@ p {
   /* Form controls */
   .input {
     width: 100%;
+    min-width: 0;
+    max-width: 100%;
     border-radius: 0.875rem;
     border: 1px solid color-mix(in srgb, var(--color-ink) 14%, transparent);
     background-color: #fff;
@@ -129,6 +131,16 @@ p {
     transition:
       border-color 0.18s ease,
       box-shadow 0.18s ease;
+  }
+
+  select.input {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+
+  select.input::-ms-expand {
+    display: none;
   }
 
   .input::placeholder {

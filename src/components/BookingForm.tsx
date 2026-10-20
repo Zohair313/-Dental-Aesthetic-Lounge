@@ -4,6 +4,7 @@ import { useState } from "react";
 import {
   CalendarCheck2,
   CheckCircle2,
+  ChevronDown,
   Loader2,
   MessageCircle,
 } from "lucide-react";
@@ -119,7 +120,7 @@ export function BookingForm() {
       </div>
 
       <div className="mt-6 grid gap-4 sm:grid-cols-2">
-        <label className="block sm:col-span-2">
+        <label className="block min-w-0 sm:col-span-2">
           <span className={fieldLabel}>Full name*</span>
           <input
             required
@@ -131,7 +132,7 @@ export function BookingForm() {
           />
         </label>
 
-        <label className="block">
+        <label className="block min-w-0">
           <span className={fieldLabel}>Phone number*</span>
           <input
             required
@@ -144,34 +145,45 @@ export function BookingForm() {
           />
         </label>
 
-        <label className="block">
+        <label className="block min-w-0">
           <span className={fieldLabel}>Service*</span>
-          <select required name="service" defaultValue="" className="input">
-            <option value="" disabled>
-              Select a treatment…
-            </option>
-            <optgroup label="Dental">
-              {services
-                .filter((s) => s.category === "dental")
-                .map((s) => (
-                  <option key={s.slug} value={s.title}>
-                    {s.title}
-                  </option>
-                ))}
-            </optgroup>
-            <optgroup label="Skin & Aesthetics">
-              {services
-                .filter((s) => s.category === "skin")
-                .map((s) => (
-                  <option key={s.slug} value={s.title}>
-                    {s.title}
-                  </option>
-                ))}
-            </optgroup>
-          </select>
+          <div className="relative">
+            <select
+              required
+              name="service"
+              defaultValue=""
+              className="input appearance-none pr-10 truncate cursor-pointer"
+            >
+              <option value="" disabled>
+                Select a treatment…
+              </option>
+              <optgroup label="Dental">
+                {services
+                  .filter((s) => s.category === "dental")
+                  .map((s) => (
+                    <option key={s.slug} value={s.title}>
+                      {s.title}
+                    </option>
+                  ))}
+              </optgroup>
+              <optgroup label="Skin & Aesthetics">
+                {services
+                  .filter((s) => s.category === "skin")
+                  .map((s) => (
+                    <option key={s.slug} value={s.title}>
+                      {s.title}
+                    </option>
+                  ))}
+              </optgroup>
+            </select>
+            <ChevronDown
+              className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted"
+              aria-hidden
+            />
+          </div>
         </label>
 
-        <label className="block">
+        <label className="block min-w-0">
           <span className={fieldLabel}>Preferred date*</span>
           <input
             required
@@ -185,27 +197,38 @@ export function BookingForm() {
           />
         </label>
 
-        <label className="block">
+        <label className="block min-w-0">
           <span className={fieldLabel}>Preferred time*</span>
-          <select required name="time" defaultValue="" className="input">
-            <option value="" disabled>
-              Select a slot…
-            </option>
-            {timeSlots.map((t) => (
-              <option key={t} value={t}>
-                {t}
+          <div className="relative">
+            <select
+              required
+              name="time"
+              defaultValue=""
+              className="input appearance-none pr-10 truncate cursor-pointer"
+            >
+              <option value="" disabled>
+                Select a slot…
               </option>
-            ))}
-          </select>
+              {timeSlots.map((t) => (
+                <option key={t} value={t}>
+                  {t}
+                </option>
+              ))}
+            </select>
+            <ChevronDown
+              className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted"
+              aria-hidden
+            />
+          </div>
         </label>
 
-        <label className="block sm:col-span-2">
+        <label className="block min-w-0 sm:col-span-2">
           <span className={fieldLabel}>Notes (optional)</span>
           <textarea
             name="notes"
             rows={3}
             placeholder="Tell us about your concern, preferred doctor, or anything we should know…"
-            className="input resize-none"
+            className="input min-h-[96px] resize-none"
           />
         </label>
       </div>
