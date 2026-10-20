@@ -1,61 +1,42 @@
 import Image from "next/image";
 import { Quote } from "lucide-react";
-import { Reveal } from "./Reveal";
-import { Stars } from "./Stars";
 import { clinic, team, testimonials } from "@/lib/data";
+import { Reveal } from "./ui/Reveal";
+import { Stars } from "./ui/Stars";
+import { Section, SectionHeader } from "./ui/Section";
 
-export function SectionHeading({
-  eyebrow,
-  title,
-  description,
-  align = "center",
-}: {
-  eyebrow: string;
-  title: string;
-  description?: string;
-  align?: "center" | "left";
-}) {
-  return (
-    <div className={align === "center" ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}>
-      <p className="eyebrow">{eyebrow}</p>
-      <h2 className="mt-3 font-display text-3xl font-semibold leading-tight tracking-tight text-ink sm:text-4xl">
-        {title}
-      </h2>
-      {description && (
-        <p className="mt-4 text-[15.5px] leading-relaxed text-muted">{description}</p>
-      )}
-    </div>
-  );
-}
+/* ── Testimonials ────────────────────────────────────────────────────────── */
 
 export function Testimonials() {
   return (
-    <section className="container-page py-20">
+    <Section tone="sand">
       <Reveal>
-        <div className="mx-auto mb-12 flex max-w-2xl flex-col items-center text-center">
-          <SectionHeading
-            eyebrow="Patient stories"
-            title="Rated 5★ by the people of Johar Town"
-          />
-          <div className="mt-5 flex items-center gap-3 rounded-full border border-gold/25 bg-gold-soft/50 px-5 py-2">
-            <span className="font-display text-2xl font-semibold text-ink">
-              {clinic.rating.value.toFixed(1)}
-            </span>
-            <Stars value={clinic.rating.value} />
-            <span className="text-sm text-muted">
-              {clinic.rating.count} reviews
-            </span>
-          </div>
+        <SectionHeader
+          eyebrow="Patient stories"
+          title="Rated 5 stars by the people of Johar Town"
+        />
+        <div className="mx-auto mt-6 flex w-fit items-center gap-3 rounded-full border border-gold/25 bg-gold-soft/60 px-5 py-2">
+          <span className="font-display text-2xl font-semibold text-ink">
+            {clinic.rating.value.toFixed(1)}
+          </span>
+          <Stars value={clinic.rating.value} />
+          <span className="text-sm text-muted">
+            {clinic.rating.count} reviews
+          </span>
         </div>
       </Reveal>
 
-      <div className="grid gap-6 md:grid-cols-2">
+      <div className="mt-12 grid gap-6 md:grid-cols-2">
         {testimonials.map((t, i) => (
           <Reveal key={t.name} delay={i * 80}>
-            <figure className="card flex h-full flex-col p-7">
-              <Quote className="h-7 w-7 text-gold/40" fill="currentColor" />
+            <figure className="card surface-shadow flex h-full flex-col p-7">
+              <Quote
+                className="h-7 w-7 text-gold/40"
+                fill="currentColor"
+                aria-hidden
+              />
               <blockquote className="mt-4 flex-1 text-[15.5px] leading-relaxed text-ink-soft">
-                “{t.quote}”
+                &ldquo;{t.quote}&rdquo;
               </blockquote>
               <figcaption className="mt-6 flex items-center justify-between border-t border-ink/8 pt-4">
                 <div>
@@ -68,15 +49,17 @@ export function Testimonials() {
           </Reveal>
         ))}
       </div>
-    </section>
+    </Section>
   );
 }
 
+/* ── Team ────────────────────────────────────────────────────────────────── */
+
 export function Team() {
   return (
-    <section className="container-page py-20">
+    <Section>
       <Reveal>
-        <SectionHeading
+        <SectionHeader
           eyebrow="Our specialists"
           title="A team that treats you like family"
           description="Dentists and aesthetic physicians working together, so your dental and skin treatments are planned as one cohesive journey."
@@ -86,7 +69,7 @@ export function Team() {
       <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {team.map((m, i) => (
           <Reveal key={m.name} delay={i * 90}>
-            <article className="card group flex h-full flex-col overflow-hidden">
+            <article className="card group flex h-full flex-col overflow-hidden surface-shadow">
               <div className="relative aspect-[4/3.4] w-full overflow-hidden bg-sand">
                 <Image
                   src={m.photo}
@@ -101,7 +84,9 @@ export function Team() {
                   {m.name}
                 </h3>
                 <p className="mt-1 text-sm font-medium text-gold">{m.role}</p>
-                <p className="mt-1 text-[13px] text-muted">{m.qualifications}</p>
+                <p className="mt-1 text-[13px] text-muted">
+                  {m.qualifications}
+                </p>
                 <ul className="mt-4 flex flex-wrap gap-2">
                   {m.focus.map((f) => (
                     <li
@@ -117,6 +102,6 @@ export function Team() {
           </Reveal>
         ))}
       </div>
-    </section>
+    </Section>
   );
 }

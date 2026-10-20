@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { PageHeader } from "@/components/PageHeader";
 import { ContactSection } from "@/components/ContactSection";
 import { FaqAccordion } from "@/components/FaqAccordion";
-import { SectionHeading } from "@/components/People";
-import { Reveal } from "@/components/Reveal";
+import { PageHeader } from "@/components/PageHeader";
+import { Reveal } from "@/components/ui/Reveal";
+import { Section, SectionHeader } from "@/components/ui/Section";
 
 export const metadata: Metadata = {
   title: "Contact & Book an Appointment",
@@ -21,13 +21,13 @@ export default function ContactPage() {
         description="Tell us what you need and when — our front desk confirms every appointment by phone."
       />
 
-      <section id="book" className="container-page scroll-mt-24 py-16">
+      <Section id="book">
         <ContactSection />
-      </section>
+      </Section>
 
-      <section className="container-page py-16">
+      <Section>
         <Reveal>
-          <SectionHeading
+          <SectionHeader
             eyebrow="Good to know"
             title="Frequently asked questions"
           />
@@ -35,7 +35,7 @@ export default function ContactPage() {
         <div className="mt-12">
           <FaqAccordion />
         </div>
-      </section>
+      </Section>
     </>
   );
 }

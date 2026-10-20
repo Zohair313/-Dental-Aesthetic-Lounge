@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
 import { BeforeAfter } from "./BeforeAfter";
 import { galleryCases, type ServiceCategory } from "@/lib/data";
 
@@ -14,6 +14,7 @@ const filters: { key: Filter; label: string }[] = [
 
 export function GalleryGrid({ limit }: { limit?: number }) {
   const [filter, setFilter] = useState<Filter>("all");
+  const groupId = useId();
 
   const visible = galleryCases
     .filter((c) => filter === "all" || c.category === filter)
@@ -21,30 +22,36 @@ export function GalleryGrid({ limit }: { limit?: number }) {
 
   return (
     <div>
-      <div className="mb-8 flex flex-wrap items-center justify-center gap-2">
-        {filters.map((f) => (
-          <button
-            key={f.key}
-            type="button"
-            onClick={() => setFilter(f.key)}
-            className={`cursor-pointer rounded-full px-5 py-2.5 text-sm font-medium transition-all ${
-              filter === f.key
-                ? "bg-ink text-cream shadow-[0_10px_24px_-12px_rgba(32,26,21,0.8)]"
-                : "border border-ink/15 bg-white text-ink-soft hover:border-gold hover:text-gold"
-            }`}
-          >
-            {f.label}
-          </button>
-        ))}
+      {/* Filter tabs */}
+      <div
+        role="tablist"
+        aria-label="Filter cases by speciality"
+        className="mb-8 flex flex-wrap items-center justify-center gap-2"
+      >
+        {filters.map((f) => {
+          const active = filter === f.key;
+          return (
+            <button
+              key={f.key}
+              type="button"
+              role="tab"
+              aria-selected={active}
+              onClick={() => setFilter(f.key)}
+              className={`cursor-pointer rounded-full px-5 py-2.5 text-sm font-medium transition-colors ${
+                active
+                  ? "bg-ink text-cream shadow-[0_10px_24px_-12px_color-mix(in_srgb,var(--color-ink)_80%,transparent)]"
+                  : "border border-ink/15 bg-white text-ink-soft hover:border-gold hover:text-gold"
+              }`}
+            >
+              {f.label}
+            </button>
+          );
+        })}
       </div>
 
       <div className="grid gap-7 sm:grid-cols-2">
         {visible.map((item) => (
-          <BeforeAfter
-            key={`${filter}-${item.id}`}
-            item={item}
-            className="animate-fade-up"
-          />
+          <BeforeAfter key={`${groupId}-${item.id}`} item={item} />
         ))}
       </div>
 

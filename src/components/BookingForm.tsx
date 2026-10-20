@@ -1,8 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import { CalendarCheck2, CheckCircle2, Loader2, MessageCircle } from "lucide-react";
+import {
+  CalendarCheck2,
+  CheckCircle2,
+  Loader2,
+  MessageCircle,
+} from "lucide-react";
 import { clinic, services } from "@/lib/data";
+import { Button, ButtonAnchor } from "./ui/Button";
+import { IconTile } from "./ui/IconTile";
 
 const timeSlots = [
   "11:00 AM",
@@ -19,12 +26,15 @@ const timeSlots = [
 
 type Status = "idle" | "submitting" | "success" | "error";
 
+const fieldLabel =
+  "mb-1.5 block text-[13px] font-semibold text-ink-soft";
+
 export function BookingForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState("");
   const [today, setToday] = useState("");
 
-  // Read the visitor's local date only when the field is first used, so it
+  // The visitor's local date is read only when the field is first used, so it
   // never runs during prerendering.
   const ensureToday = () => {
     if (!today) setToday(new Date().toISOString().split("T")[0]);
@@ -46,7 +56,9 @@ export function BookingForm() {
       });
       const json = (await res.json()) as { ok: boolean; error?: string };
       if (!res.ok || !json.ok) {
-        throw new Error(json.error || "Something went wrong. Please call us instead.");
+        throw new Error(
+          json.error || "Something went wrong. Please call us instead.",
+        );
       }
       setStatus("success");
       form.reset();
@@ -58,51 +70,57 @@ export function BookingForm() {
 
   if (status === "success") {
     return (
-      <div className="card flex flex-col items-center px-8 py-14 text-center">
-        <CheckCircle2 className="h-14 w-14 text-gold" strokeWidth={1.5} />
+      <div className="card surface-shadow flex flex-col items-center px-8 py-14 text-center">
+        <CheckCircle2
+          className="h-14 w-14 text-gold"
+          strokeWidth={1.5}
+          aria-hidden
+        />
         <h3 className="mt-5 font-display text-2xl font-semibold text-ink">
-          Request received!
+          Request received
         </h3>
         <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted">
           Our front desk will call you shortly to confirm your slot. For
           same-day appointments, WhatsApp or call us directly.
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-3">
-          <a href={clinic.whatsapp} target="_blank" rel="noopener noreferrer" className="btn-gold">
-            <MessageCircle className="h-4 w-4" />
+          <ButtonAnchor
+            href={clinic.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <MessageCircle className="h-4 w-4" aria-hidden />
             WhatsApp us now
-          </a>
-          <button
+          </ButtonAnchor>
+          <Button
             type="button"
+            variant="outline"
             onClick={() => setStatus("idle")}
-            className="btn-outline"
           >
             Book another appointment
-          </button>
+          </Button>
         </div>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="card p-6 sm:p-8">
+    <form onSubmit={handleSubmit} className="card surface-shadow p-6 sm:p-8">
       <div className="flex items-center gap-3">
-        <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-gold-soft text-gold">
-          <CalendarCheck2 className="h-5 w-5" />
-        </span>
+        <IconTile icon={CalendarCheck2} />
         <div>
           <h3 className="font-display text-xl font-semibold text-ink">
             Book an Appointment
           </h3>
-          <p className="text-sm text-muted">We confirm every booking by phone.</p>
+          <p className="text-sm text-muted">
+            We confirm every booking by phone.
+          </p>
         </div>
       </div>
 
       <div className="mt-6 grid gap-4 sm:grid-cols-2">
         <label className="block sm:col-span-2">
-          <span className="mb-1.5 block text-[13px] font-semibold text-ink-soft">
-            Full name*
-          </span>
+          <span className={fieldLabel}>Full name*</span>
           <input
             required
             name="name"
@@ -114,9 +132,7 @@ export function BookingForm() {
         </label>
 
         <label className="block">
-          <span className="mb-1.5 block text-[13px] font-semibold text-ink-soft">
-            Phone number*
-          </span>
+          <span className={fieldLabel}>Phone number*</span>
           <input
             required
             name="phone"
@@ -129,9 +145,7 @@ export function BookingForm() {
         </label>
 
         <label className="block">
-          <span className="mb-1.5 block text-[13px] font-semibold text-ink-soft">
-            Service*
-          </span>
+          <span className={fieldLabel}>Service*</span>
           <select required name="service" defaultValue="" className="input">
             <option value="" disabled>
               Select a treatment…
@@ -158,9 +172,7 @@ export function BookingForm() {
         </label>
 
         <label className="block">
-          <span className="mb-1.5 block text-[13px] font-semibold text-ink-soft">
-            Preferred date*
-          </span>
+          <span className={fieldLabel}>Preferred date*</span>
           <input
             required
             name="date"
@@ -174,9 +186,7 @@ export function BookingForm() {
         </label>
 
         <label className="block">
-          <span className="mb-1.5 block text-[13px] font-semibold text-ink-soft">
-            Preferred time*
-          </span>
+          <span className={fieldLabel}>Preferred time*</span>
           <select required name="time" defaultValue="" className="input">
             <option value="" disabled>
               Select a slot…
@@ -190,9 +200,7 @@ export function BookingForm() {
         </label>
 
         <label className="block sm:col-span-2">
-          <span className="mb-1.5 block text-[13px] font-semibold text-ink-soft">
-            Notes (optional)
-          </span>
+          <span className={fieldLabel}>Notes (optional)</span>
           <textarea
             name="notes"
             rows={3}
@@ -211,24 +219,28 @@ export function BookingForm() {
         </p>
       )}
 
-      <button
+      <Button
         type="submit"
+        size="lg"
         disabled={status === "submitting"}
-        className="btn-gold mt-6 w-full disabled:cursor-not-allowed disabled:opacity-70"
+        className="mt-6 w-full"
       >
         {status === "submitting" ? (
           <>
-            <Loader2 className="h-4 w-4 animate-spin" />
+            <Loader2 className="h-4 w-4 animate-spin" aria-hidden />
             Sending request…
           </>
         ) : (
           "Request Appointment"
         )}
-      </button>
+      </Button>
 
       <p className="mt-3 text-center text-xs text-muted">
         Prefer to talk? Call{" "}
-        <a href={clinic.phoneHref} className="font-semibold text-gold hover:underline">
+        <a
+          href={clinic.phoneHref}
+          className="font-semibold text-gold hover:underline"
+        >
           {clinic.phone}
         </a>
       </p>

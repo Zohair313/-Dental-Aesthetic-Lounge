@@ -1,14 +1,15 @@
-import Link from "next/link";
 import { Check, Sparkles } from "lucide-react";
-import { Hero } from "@/components/Hero";
-import { ClinicGallery } from "@/components/ClinicGallery";
-import { ServicesGrid } from "@/components/ServicesGrid";
-import { GalleryGrid } from "@/components/GalleryGrid";
-import { ContactSection } from "@/components/ContactSection";
-import { Testimonials, Team, SectionHeading } from "@/components/People";
-import { WhyUs } from "@/components/WhyUs";
 import { CTABand } from "@/components/CTABand";
-import { Reveal } from "@/components/Reveal";
+import { ClinicGallery } from "@/components/ClinicGallery";
+import { ContactSection } from "@/components/ContactSection";
+import { GalleryGrid } from "@/components/GalleryGrid";
+import { Hero } from "@/components/Hero";
+import { ServicesGrid } from "@/components/ServicesGrid";
+import { Team, Testimonials } from "@/components/People";
+import { WhyUs } from "@/components/WhyUs";
+import { ButtonLink } from "@/components/ui/Button";
+import { Reveal } from "@/components/ui/Reveal";
+import { Section, SectionHeader } from "@/components/ui/Section";
 import { services } from "@/lib/data";
 
 export default function HomePage() {
@@ -19,10 +20,10 @@ export default function HomePage() {
     <>
       <Hero />
 
-      {/* Intro / two specialities */}
-      <section className="container-page py-20">
+      {/* One lounge, two specialities */}
+      <Section>
         <Reveal>
-          <SectionHeading
+          <SectionHeader
             eyebrow="One lounge, two specialities"
             title="Everything your smile and skin need, in one place"
             description="No more running between a dentist and a dermatologist. At Dental & Aesthetic Lounge your dental work and skin treatments are planned together by one coordinated team."
@@ -47,12 +48,12 @@ export default function HomePage() {
             />
           </Reveal>
         </div>
-      </section>
+      </Section>
 
       {/* Services */}
-      <section id="services" className="container-page scroll-mt-24 py-10">
+      <Section id="services" size="sm">
         <Reveal>
-          <SectionHeading
+          <SectionHeader
             eyebrow="Our treatments"
             title="Specialised dental & skin services"
             description="From digital smile design to medical-grade laser therapies — every treatment is delivered with modern equipment and a personalised plan."
@@ -62,16 +63,16 @@ export default function HomePage() {
           <ServicesGrid />
         </div>
         <div className="mt-10 text-center">
-          <Link href="/services" className="btn-outline">
+          <ButtonLink href="/services" variant="outline">
             See full treatment details
-          </Link>
+          </ButtonLink>
         </div>
-      </section>
+      </Section>
 
-      {/* Gallery */}
-      <section id="gallery" className="container-page scroll-mt-24 py-20">
+      {/* Before & after */}
+      <Section id="gallery">
         <Reveal>
-          <SectionHeading
+          <SectionHeader
             eyebrow="Before & after"
             title="Real transformations, tracked session by session"
             description="Drag the slider on any case to compare. Our multi-session treatments are documented visit-by-visit so progress is always visible."
@@ -81,16 +82,14 @@ export default function HomePage() {
           <GalleryGrid limit={4} />
         </div>
         <div className="mt-10 text-center">
-          <Link href="/gallery" className="btn-gold">
-            Open the full gallery
-          </Link>
+          <ButtonLink href="/gallery">Open the full gallery</ButtonLink>
         </div>
-      </section>
+      </Section>
 
-      {/* Inside the clinic */}
-      <section className="container-page py-10">
+      {/* Inside the lounge */}
+      <Section size="sm">
         <Reveal>
-          <SectionHeading
+          <SectionHeader
             eyebrow="Inside the lounge"
             title="Clean, calm and built for comfort"
             description="Modern treatment suites, hospital-grade sterilisation and a lounge-style waiting area — designed so every visit feels easy."
@@ -99,12 +98,12 @@ export default function HomePage() {
         <div className="mt-12">
           <ClinicGallery />
         </div>
-      </section>
+      </Section>
 
       {/* Why us */}
-      <section className="container-page py-10">
+      <Section size="sm">
         <Reveal>
-          <SectionHeading
+          <SectionHeader
             eyebrow="Why patients choose us"
             title="Care you can feel from the first visit"
           />
@@ -112,15 +111,15 @@ export default function HomePage() {
         <div className="mt-12">
           <WhyUs />
         </div>
-      </section>
+      </Section>
 
       <Team />
       <Testimonials />
 
       {/* Contact + booking */}
-      <section id="book" className="container-page scroll-mt-24 py-20">
+      <Section id="book">
         <ContactSection />
-      </section>
+      </Section>
 
       <CTABand />
     </>
@@ -138,18 +137,33 @@ function SpecialityCard({
   items: string[];
   tone: "gold" | "rose";
 }) {
-  const accent = tone === "gold" ? "text-gold bg-gold-soft" : "text-rose bg-rose/12";
+  const accent =
+    tone === "gold"
+      ? "text-gold bg-gold-soft"
+      : "text-rose bg-rose-soft";
+
   return (
-    <article className="card flex h-full flex-col p-8">
-      <span className={`inline-flex w-fit items-center gap-2 rounded-full px-4 py-1.5 text-[12px] font-semibold ${accent}`}>
-        <Sparkles className="h-3.5 w-3.5" />
+    <article className="card surface-shadow flex h-full flex-col p-8">
+      <span
+        className={`inline-flex w-fit items-center gap-2 rounded-full px-4 py-1.5 text-[12px] font-semibold ${accent}`}
+      >
+        <Sparkles className="h-3.5 w-3.5" aria-hidden />
         {badge}
       </span>
-      <h3 className="mt-5 font-display text-2xl font-semibold text-ink">{title}</h3>
+      <h3 className="mt-5 font-display text-2xl font-semibold text-ink">
+        {title}
+      </h3>
       <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
         {items.map((item) => (
-          <li key={item} className="flex items-start gap-2.5 text-sm text-ink-soft">
-            <Check className="mt-0.5 h-4 w-4 shrink-0 text-gold" strokeWidth={2.5} />
+          <li
+            key={item}
+            className="flex items-start gap-2.5 text-sm text-ink-soft"
+          >
+            <Check
+              className="mt-0.5 h-4 w-4 shrink-0 text-gold"
+              strokeWidth={2.5}
+              aria-hidden
+            />
             {item}
           </li>
         ))}

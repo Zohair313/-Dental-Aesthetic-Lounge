@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Link from "next/link";
 import { MessageCircle, Phone } from "lucide-react";
 import { clinic } from "@/lib/data";
+import { ButtonAnchor, ButtonLink } from "./ui/Button";
 
 /** Full-width call-to-action band. */
 export function CTABand() {
@@ -21,10 +21,10 @@ export function CTABand() {
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "radial-gradient(50% 80% at 20% 0%, rgba(168,129,63,0.35) 0%, transparent 60%), radial-gradient(45% 70% at 85% 100%, rgba(192,133,123,0.28) 0%, transparent 55%), linear-gradient(180deg, rgba(29,24,19,0.72) 0%, rgba(29,24,19,0.86) 100%)",
+              "radial-gradient(50% 80% at 20% 0%, color-mix(in srgb, var(--color-gold) 35%, transparent) 0%, transparent 60%), radial-gradient(45% 70% at 85% 100%, color-mix(in srgb, var(--color-rose) 28%, transparent) 0%, transparent 55%), linear-gradient(180deg, color-mix(in srgb, var(--color-night) 72%, transparent) 0%, color-mix(in srgb, var(--color-night) 88%, transparent) 100%)",
           }}
         />
-        <h2 className="relative font-display text-3xl font-semibold leading-tight text-cream sm:text-4xl">
+        <h2 className="relative font-display text-3xl leading-tight font-semibold text-cream sm:text-4xl">
           Ready for your best smile and skin?
         </h2>
         <p className="relative mx-auto mt-4 max-w-xl text-[15.5px] leading-relaxed text-cream/70">
@@ -33,25 +33,27 @@ export function CTABand() {
           budget.
         </p>
         <div className="relative mt-8 flex flex-wrap justify-center gap-3">
-          <Link href="/contact#book" className="btn-gold">
+          <ButtonLink href="/contact#book" size="lg">
             Book an Appointment
-          </Link>
-          <a
+          </ButtonLink>
+          <ButtonAnchor
             href={clinic.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn border border-cream/25 bg-cream/5 text-cream hover:border-gold hover:text-gold"
+            variant="light"
+            size="lg"
           >
-            <MessageCircle className="h-4 w-4" />
+            <MessageCircle className="h-4 w-4" aria-hidden />
             WhatsApp
-          </a>
-          <a
+          </ButtonAnchor>
+          <ButtonAnchor
             href={clinic.phoneHref}
-            className="btn border border-cream/25 bg-cream/5 text-cream hover:border-gold hover:text-gold"
+            variant="light"
+            size="lg"
           >
-            <Phone className="h-4 w-4" />
+            <Phone className="h-4 w-4" aria-hidden />
             Call now
-          </a>
+          </ButtonAnchor>
         </div>
       </div>
     </section>

@@ -1,12 +1,13 @@
 import {
-  Sparkles,
-  ShieldCheck,
-  Layers,
-  Smartphone,
   HeartHandshake,
+  Layers,
   Microscope,
+  ShieldCheck,
+  Smartphone,
+  Sparkles,
   type LucideIcon,
 } from "lucide-react";
+import { Reveal } from "./ui/Reveal";
 
 const pillars: { icon: LucideIcon; title: string; copy: string }[] = [
   {
@@ -44,14 +45,18 @@ const pillars: { icon: LucideIcon; title: string; copy: string }[] = [
 export function WhyUs() {
   return (
     <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {pillars.map(({ icon: Icon, title, copy }) => (
-        <article key={title} className="rounded-3xl border border-ink/8 bg-sand/50 p-7">
-          <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-gold shadow-sm">
-            <Icon className="h-6 w-6" strokeWidth={1.7} />
-          </span>
-          <h3 className="mt-5 font-display text-lg font-semibold text-ink">{title}</h3>
-          <p className="mt-2 text-sm leading-relaxed text-muted">{copy}</p>
-        </article>
+      {pillars.map(({ icon: Icon, title, copy }, i) => (
+        <Reveal key={title} delay={i * 70}>
+          <article className="h-full rounded-3xl border border-ink/8 bg-sand/50 p-7">
+            <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-gold shadow-sm">
+              <Icon className="h-6 w-6" strokeWidth={1.7} aria-hidden />
+            </span>
+            <h3 className="mt-5 font-display text-lg font-semibold text-ink">
+              {title}
+            </h3>
+            <p className="mt-2 text-sm leading-relaxed text-muted">{copy}</p>
+          </article>
+        </Reveal>
       ))}
     </div>
   );

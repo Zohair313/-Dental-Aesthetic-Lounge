@@ -68,7 +68,9 @@ export function BeforeAfter({
   const hasPhotos = Boolean(item.beforeSrc && item.afterSrc);
 
   return (
-    <figure className={`overflow-hidden rounded-3xl border border-ink/8 bg-white shadow-[0_24px_70px_-45px_rgba(32,26,21,0.5)] ${className}`}>
+    <figure
+      className={`card surface-shadow overflow-hidden ${className}`}
+    >
       <div
         ref={containerRef}
         className="relative aspect-[4/3] w-full cursor-ew-resize touch-none select-none overflow-hidden bg-sand"
@@ -101,10 +103,10 @@ export function BeforeAfter({
         </div>
 
         {/* Labels */}
-        <span className="pointer-events-none absolute left-3 top-3 rounded-full bg-ink/70 px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-cream backdrop-blur-sm">
+        <span className="pointer-events-none absolute top-3 left-3 rounded-full bg-ink/70 px-3 py-1 text-[11px] font-semibold tracking-widest text-cream uppercase backdrop-blur-sm">
           Before
         </span>
-        <span className="pointer-events-none absolute right-3 top-3 rounded-full bg-gold/90 px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-white backdrop-blur-sm">
+        <span className="pointer-events-none absolute top-3 right-3 rounded-full bg-gold/90 px-3 py-1 text-[11px] font-semibold tracking-widest text-white uppercase backdrop-blur-sm">
           After
         </span>
 
@@ -122,17 +124,17 @@ export function BeforeAfter({
           aria-valuenow={Math.round(pct)}
           aria-valuetext={`${Math.round(pct)}% before, ${100 - Math.round(pct)}% after`}
           onKeyDown={onKeyDown}
-          className="absolute top-1/2 z-10 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 cursor-ew-resize items-center justify-center rounded-full border-2 border-gold bg-white/95 shadow-[0_8px_24px_-6px_rgba(32,26,21,0.5)] backdrop-blur-sm transition-transform hover:scale-105 focus:outline-none focus-visible:ring-4 focus-visible:ring-gold/30"
+          className="absolute top-1/2 z-10 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 cursor-ew-resize items-center justify-center rounded-full border-2 border-gold bg-white/95 shadow-[0_8px_24px_-6px_color-mix(in_srgb,var(--color-ink)_50%,transparent)] backdrop-blur-sm transition-transform hover:scale-105 focus:outline-none focus-visible:ring-4 focus-visible:ring-gold/30"
           style={{ left: `${pct}%` }}
         >
-          <ChevronLeft className="h-4 w-4 -mr-0.5 text-gold" />
-          <ChevronRight className="h-4 w-4 -ml-0.5 text-gold" />
+          <ChevronLeft className="mr-0.5 h-4 w-4 text-gold" aria-hidden />
+          <ChevronRight className="ml-0.5 h-4 w-4 text-gold" aria-hidden />
         </button>
       </div>
 
       <figcaption className="px-5 py-4">
         <div className="flex items-start justify-between gap-3">
-          <h3 className="font-display text-lg font-semibold leading-snug text-ink">
+          <h3 className="font-display text-lg leading-snug font-semibold text-ink">
             {item.title}
           </h3>
           <span className="shrink-0 rounded-full bg-gold-soft px-3 py-1 text-[11px] font-semibold text-gold-dark">
@@ -141,7 +143,7 @@ export function BeforeAfter({
         </div>
         <p className="mt-1.5 text-sm leading-relaxed text-muted">{item.note}</p>
         {!hasPhotos && (
-          <p className="mt-2 text-[11px] uppercase tracking-wider text-muted/70">
+          <p className="mt-2 text-[11px] tracking-wider text-muted/70 uppercase">
             Illustrative render — patient photography to be added
           </p>
         )}

@@ -1,4 +1,5 @@
-import Link from "next/link";
+import { ButtonLink } from "@/components/ui/Button";
+import { clinic } from "@/lib/data";
 
 export default function NotFound() {
   return (
@@ -9,15 +10,13 @@ export default function NotFound() {
       </h1>
       <p className="mt-4 max-w-md text-[15.5px] leading-relaxed text-muted">
         The page you were looking for doesn&apos;t exist. Head back home, or
-        call us on +92 303 017 1000 if you need help booking.
+        call us on {clinic.phone} if you need help booking.
       </p>
       <div className="mt-8 flex flex-wrap justify-center gap-3">
-        <Link href="/" className="btn-gold">
-          Back to home
-        </Link>
-        <Link href="/contact#book" className="btn-outline">
+        <ButtonLink href="/">Back to home</ButtonLink>
+        <ButtonLink href="/contact#book" variant="outline">
           Book an appointment
-        </Link>
+        </ButtonLink>
       </div>
     </section>
   );
