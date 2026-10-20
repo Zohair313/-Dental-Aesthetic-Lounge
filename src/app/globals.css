@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Palette: warm, elegant, "lounge" feel ─────────────────────────────── */
+  --color-ink: #201a15;
+  --color-ink-soft: #453b32;
+  --color-muted: #7a6d60;
+  --color-cream: #fbf7f1;
+  --color-sand: #f3ebdf;
+  --color-sand-dark: #e8dbc8;
+  --color-gold: #a8813f;
+  --color-gold-dark: #876531;
+  --color-gold-soft: #f0e2c6;
+  --color-rose: #c0857b;
+  --color-night: #1d1813;
+}
+
+@theme inline {
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-fraunces);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--color-gold-soft);
+  color: var(--color-ink);
+}
+
+/* ── Small reusable utilities ─────────────────────────────────────────────── */
+
+@layer utilities {
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+
+  .eyebrow {
+    @apply text-xs font-semibold tracking-[0.22em] uppercase text-gold;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200 cursor-pointer;
+  }
+
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200 cursor-pointer bg-gold text-white shadow-[0_10px_30px_-12px_rgba(168,129,63,0.7)] hover:bg-gold-dark hover:shadow-[0_14px_36px_-12px_rgba(135,101,49,0.8)] active:scale-[0.98];
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200 cursor-pointer border border-ink/20 bg-white/60 text-ink hover:border-gold hover:text-gold active:scale-[0.98];
+  }
+
+  .card {
+    @apply rounded-3xl border border-ink/8 bg-white shadow-[0_20px_60px_-40px_rgba(32,26,21,0.45)];
+  }
+
+  .input {
+    @apply w-full rounded-xl border border-ink/15 bg-white px-4 py-3 text-sm text-ink placeholder:text-muted/70 outline-none transition-colors focus:border-gold focus:ring-2 focus:ring-gold/20;
+  }
+}
+
+/* ── Motion ───────────────────────────────────────────────────────────────── */
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes soft-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-soft-float {
+  animation: soft-float 7s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-fade-up,
+  .animate-soft-float {
+    animation: none;
+  }
+}
