@@ -3,6 +3,7 @@ import { ShieldCheck, Sparkles, Stethoscope } from "lucide-react";
 import { clinic } from "@/lib/data";
 import { ButtonAnchor } from "./ui/Button";
 import { Stars } from "./ui/Stars";
+import { StockBadge } from "./ui/StockBadge";
 
 const highlights = [
   {
@@ -94,13 +95,14 @@ export function Hero() {
 
           <div className="relative aspect-[4/3.2] overflow-hidden rounded-[2rem] border border-white/60 bg-white surface-shadow-lg">
             <Image
-              src="/img/clinic-interior.jpg"
-              alt="Inside Dental & Aesthetic Lounge — the reception and waiting area"
+              src="/img/reception.jpg"
+              alt="A clinic reception and waiting area"
               fill
               priority
               sizes="(max-width: 1024px) 100vw, 46vw"
               className="object-cover"
             />
+            <StockBadge className="absolute top-3 right-3" />
           </div>
 
           {/* Floating rating card */}

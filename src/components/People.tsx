@@ -4,6 +4,7 @@ import { clinic, team, testimonials } from "@/lib/data";
 import { Reveal } from "./ui/Reveal";
 import { Stars } from "./ui/Stars";
 import { Section, SectionHeader } from "./ui/Section";
+import { StockBadge } from "./ui/StockBadge";
 
 /* ── Testimonials ────────────────────────────────────────────────────────── */
 
@@ -66,38 +67,65 @@ export function Team() {
         />
       </Reveal>
 
-      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {/* Team at work — representative stock photograph, no individuals named */}
+      <Reveal delay={60}>
+        <figure className="card surface-shadow mt-12 overflow-hidden">
+          <div className="relative aspect-[21/9] w-full overflow-hidden bg-sand">
+            <Image
+              src="/img/team.jpg"
+              alt="A dental team working together in a treatment room"
+              fill
+              sizes="(max-width: 1152px) 100vw, 1152px"
+              className="object-cover"
+            />
+            <StockBadge className="absolute top-3 right-3" />
+          </div>
+          <figcaption className="flex flex-col gap-1 px-6 py-4 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-[13px] text-muted">
+              Our dental and aesthetic team, working as one.
+            </p>
+            <p className="text-[11px] tracking-wide text-muted/70 uppercase">
+              Representative image
+            </p>
+          </figcaption>
+        </figure>
+      </Reveal>
+
+      {/* Named profiles — details pending confirmation by the clinic */}
+      <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {team.map((m, i) => (
           <Reveal key={m.name} delay={i * 90}>
-            <article className="card group flex h-full flex-col overflow-hidden surface-shadow">
-              <div className="relative aspect-[4/3.4] w-full overflow-hidden bg-sand">
-                <Image
-                  src={m.photo}
-                  alt={`${m.name} — ${m.role}`}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                />
-              </div>
-              <div className="flex flex-1 flex-col p-7">
-                <h3 className="font-display text-xl font-semibold text-ink">
-                  {m.name}
-                </h3>
-                <p className="mt-1 text-sm font-medium text-gold">{m.role}</p>
-                <p className="mt-1 text-[13px] text-muted">
-                  {m.qualifications}
-                </p>
-                <ul className="mt-4 flex flex-wrap gap-2">
-                  {m.focus.map((f) => (
-                    <li
-                      key={f}
-                      className="rounded-full bg-sand px-3 py-1 text-[12px] font-medium text-ink-soft"
-                    >
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            <article className="card flex h-full flex-col p-7 surface-shadow">
+              <span
+                aria-hidden
+                className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-gold-soft to-sand font-display text-xl font-semibold text-gold-dark"
+              >
+                {m.name
+                  .split(" ")
+                  .slice(-2)
+                  .map((w) => w[0])
+                  .join("")}
+              </span>
+              <h3 className="mt-5 font-display text-xl font-semibold text-ink">
+                {m.name}
+              </h3>
+              <p className="mt-1 text-sm font-medium text-gold">{m.role}</p>
+              <p className="mt-1 text-[13px] text-muted">
+                {m.qualifications}
+              </p>
+              <ul className="mt-4 flex flex-wrap gap-2">
+                {m.focus.map((f) => (
+                  <li
+                    key={f}
+                    className="rounded-full bg-sand px-3 py-1 text-[12px] font-medium text-ink-soft"
+                  >
+                    {f}
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-5 border-t border-ink/8 pt-4 text-[11px] tracking-wide text-muted/70 uppercase">
+                Profile to be confirmed by the clinic
+              </p>
             </article>
           </Reveal>
         ))}

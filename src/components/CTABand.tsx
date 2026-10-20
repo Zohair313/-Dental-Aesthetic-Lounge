@@ -1,4 +1,4 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import { MessageCircle, Phone } from "lucide-react";
 import { clinic } from "@/lib/data";
 import { ButtonAnchor, ButtonLink } from "./ui/Button";
@@ -9,7 +9,7 @@ export function CTABand() {
     <section className="container-page">
       <div className="relative overflow-hidden rounded-[2rem] bg-night px-8 py-16 text-center sm:px-16">
         <Image
-          src="/img/clinic-interior.jpg"
+          src="/img/reception.jpg"
           alt=""
           fill
           sizes="100vw"
@@ -28,7 +28,7 @@ export function CTABand() {
           Ready for your best smile and skin?
         </h2>
         <p className="relative mx-auto mt-4 max-w-xl text-[15.5px] leading-relaxed text-cream/70">
-          Book a consultation at Dental &amp; Aesthetic Lounge today — we will
+          Book a consultation at Dental &amp; Aesthetic Lounge today â€” we will
           map out a treatment plan that fits your goals, your schedule and your
           budget.
         </p>

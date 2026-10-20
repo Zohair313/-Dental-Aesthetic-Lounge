@@ -68,6 +68,52 @@ changes needed. Until then it falls back to the illustrative SVG renders in
 > Before publishing real patient photography, make sure written patient consent
 > has been obtained for each case.
 
+## Photographs (representative stock imagery)
+
+The clinic photographs currently in the site are **licensed stock images, not
+photographs of the actual clinic**. They are sourced from
+[Pexels](https://www.pexels.com/) under the
+[Pexels Licence](https://www.pexels.com/license/) (free for commercial use, no
+attribution required).
+
+They are labelled **"Representative image"** in the UI wherever they appear, and
+`STOCK-CREDITS.md` lists every file. This labelling is deliberate — please keep
+it until real photography is supplied.
+
+**To swap in real photographs:**
+
+1. Drop the real photo into `public/stock/` using the same filename
+   (e.g. `reception.jpg`, `dental-room.jpg`, `team.jpg`)
+2. Run `node scripts/optimise-stock.mjs` (resizes + compresses to
+   `public/img/`)
+3. Run `node scripts/build-og.mjs` to refresh the social share image
+4. Remove the `Representative image` badges (`src/components/ui/StockBadge.tsx`)
+
+| Slot | File | Where it appears |
+| --- | --- | --- |
+| Reception | `reception.jpg` | Hero, CTA band, gallery |
+| Dental suite | `dental-room.jpg` | Gallery, Services |
+| Aesthetic suite | `laser-room.jpg` | Gallery, Services |
+| Instruments | `tools.jpg` | Gallery |
+| Exterior | `facade.jpg` | Gallery |
+| Corridor | `hallway.jpg` | Gallery |
+| Consultation | `consultation.jpg` | Gallery, Services |
+| Imaging | `xray.jpg` | Gallery, Services |
+| In treatment | `dentist-work.jpg` | Gallery, OG image |
+| Check-up | `dental-detail.jpg` | Gallery |
+| Team | `team.jpg` | "Our specialists" |
+| Smile | `smile.jpg` | Home spotlight, Gallery |
+| Skincare | `skincare.jpg` | Home spotlight |
+| Aesthetic treatment | `skin-treatment.jpg` | (spare) |
+
+### On the team section
+
+The three named profiles in `team` are **placeholder people**. They intentionally
+carry no photograph: attaching stock portraits to named individuals would
+present strangers as the clinic's doctors. The section instead shows one
+generic team-at-work photograph (labelled) plus monogram tiles marked
+"Profile to be confirmed by the clinic".
+
 ## Editing content
 
 Almost all copy lives in **`src/lib/data.ts`**:
@@ -83,7 +129,9 @@ Almost all copy lives in **`src/lib/data.ts`**:
 
 - [ ] Replace the placeholder Facebook URL (`clinic.facebook`)
 - [ ] Replace the placeholder doctors in `team` with the real clinic team
-- [ ] Replace placeholder testimonials with real Google / Facebook reviews
+- [ ] Replace the placeholder testimonials with real Google / Facebook reviews
+- [ ] **Replace the representative stock photographs with real clinic photos**
+      (see "Photographs" above) and remove the "Representative image" badges
 - [ ] Confirm the opening hours in `clinic.hours`
 - [ ] Add real, consent-cleared before/after photographs (`beforeSrc` / `afterSrc`)
 - [ ] Wire `/api/appointments` to PostgreSQL (via Prisma) and front-desk notifications

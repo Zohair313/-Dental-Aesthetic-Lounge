@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Image from "next/image";
 import { Check, Clock, Repeat, ShieldCheck, Wallet } from "lucide-react";
 import { CTABand } from "@/components/CTABand";
@@ -6,6 +6,7 @@ import { PageHeader } from "@/components/PageHeader";
 import { ServicesGrid } from "@/components/ServicesGrid";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section, SectionHeader } from "@/components/ui/Section";
+import { StockBadge } from "@/components/ui/StockBadge";
 import { services, type ServiceCategory } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -47,7 +48,7 @@ const categories: { key: ServiceCategory; label: string; blurb: string }[] = [
     key: "dental",
     label: "Dental Treatments",
     blurb:
-      "General, cosmetic and orthodontic dentistry delivered with modern equipment — from routine cleaning to complete smile makeovers.",
+      "General, cosmetic and orthodontic dentistry delivered with modern equipment â€” from routine cleaning to complete smile makeovers.",
   },
   {
     key: "skin",
@@ -94,6 +95,7 @@ export default function ServicesPage() {
                   sizes="(max-width: 640px) 100vw, 50vw"
                   className="object-cover"
                 />
+                <StockBadge className="absolute top-3 right-3" />
               </div>
               <div className="relative h-56 overflow-hidden rounded-3xl border border-ink/8 bg-sand sm:h-72">
                 <Image
@@ -111,6 +113,7 @@ export default function ServicesPage() {
                   sizes="(max-width: 640px) 100vw, 50vw"
                   className="object-cover"
                 />
+                <StockBadge className="absolute top-3 right-3" />
               </div>
             </div>
           </Reveal>
@@ -168,7 +171,7 @@ export default function ServicesPage() {
           <SectionHeader
             eyebrow="How it works"
             title="Your treatment journey"
-            description="A simple, transparent process — including the session tracking our multi-visit treatments are built around."
+            description="A simple, transparent process â€” including the session tracking our multi-visit treatments are built around."
           />
         </Reveal>
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

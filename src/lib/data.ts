@@ -276,81 +276,105 @@ export const galleryCases: GalleryCase[] = [
 
 /* ── Team (TODO: replace with the clinic's real doctors) ─────────────────── */
 
+/**
+ * PLACEHOLDER profiles. These names, roles and qualifications are invented and
+ * must be replaced with the clinic's real staff before launch — including
+ * written consent for any photographs used.
+ *
+ * Deliberately carries no `photo` field: we do not attach stock portraits to
+ * named individuals, as that would present strangers as the clinic's doctors.
+ */
 export const team = [
   {
     name: "Dr. Ayesha Khan",
     role: "Dental Surgeon & Smile Design Specialist",
     qualifications: "BDS, FCPS (Prosthodontics)",
-    photo: "/img/doctor-1.jpg",
     focus: ["Veneers & Smile Design", "Implants", "Crowns & Bridges"],
   },
   {
     name: "Dr. Bilal Ahmed",
     role: "Orthodontist",
     qualifications: "BDS, MSc Orthodontics",
-    photo: "/img/doctor-2.jpg",
     focus: ["Clear Aligners", "Braces", "Retention & Relapse Cases"],
   },
   {
     name: "Dr. Hina Shahid",
     role: "Aesthetic Physician",
     qualifications: "MBBS, Diploma in Dermatology",
-    photo: "/img/doctor-3.jpg",
     focus: ["Laser Rejuvenation", "Pigmentation", "Anti-Aging Protocols"],
   },
 ] as const;
 
-/* ── Clinic gallery imagery (generated artwork in /public/img) ───────────── */
+/* ── Clinic imagery ──────────────────────────────────────────────────────── */
+
+/**
+ * Every photo below is a REPRESENTATIVE stock image (Pexels licence, free for
+ * commercial use) — not an actual photograph of this clinic. The UI labels
+ * them accordingly via `clinicPhotos[].stock`.
+ *
+ * To use real clinic photos: drop them into `public/stock/` using the same
+ * filenames and run `node scripts/optimise-stock.mjs`.
+ */
 export const clinicPhotos = [
   {
-    src: "/img/clinic-interior.jpg",
-    alt: "Reception area of Dental & Aesthetic Lounge",
+    src: "/img/reception.jpg",
+    alt: "Clinic reception and waiting area",
     label: "Reception",
+    stock: true,
   },
   {
     src: "/img/dental-room.jpg",
     alt: "Dental treatment room with modern dental chair",
     label: "Dental Suite",
+    stock: true,
   },
   {
     src: "/img/laser-room.jpg",
-    alt: "Laser skin treatment room",
+    alt: "Aesthetic treatment room",
     label: "Aesthetic Suite",
+    stock: true,
   },
   {
-    src: "/img/instruments.jpg",
-    alt: "Sterilised dental instruments on a tray",
-    label: "Sterilisation",
+    src: "/img/tools.jpg",
+    alt: "Sterilised dental instruments laid out on a tray",
+    label: "Instruments",
+    stock: true,
   },
   {
-    src: "/img/clinic-facade.jpg",
-    alt: "Clinic exterior with signage",
+    src: "/img/facade.jpg",
+    alt: "Clinic entrance and exterior",
     label: "Our Clinic",
+    stock: true,
   },
   {
     src: "/img/hallway.jpg",
-    alt: "Treatment suite corridor leading to the dental rooms",
+    alt: "Corridor leading to the treatment rooms",
     label: "The Corridor",
+    stock: true,
   },
   {
     src: "/img/consultation.jpg",
-    alt: "Doctor discussing a treatment plan with a patient",
+    alt: "Dentist discussing a treatment plan with a patient",
     label: "Consultation",
+    stock: true,
   },
   {
     src: "/img/xray.jpg",
-    alt: "Digital OPG X-ray review on the lightbox",
+    alt: "Dental X-ray being reviewed on a screen",
     label: "Digital Imaging",
+    stock: true,
   },
   {
-    src: "/img/sterilisation.jpg",
-    alt: "Autoclave sterilisation unit with sealed instrument pouches",
-    label: "Autoclave",
+    src: "/img/dentist-work.jpg",
+    alt: "Dentist carrying out a procedure",
+    label: "In Treatment",
+    stock: true,
   },
   {
-    src: "/img/checkup-closeup.jpg",
-    alt: "Dental check-up with a mouth mirror and dental explorer",
+    src: "/img/dental-detail.jpg",
+    alt: "Close-up of a dental check-up",
     label: "Check-up",
+    stock: true,
   },
 ] as const;
 

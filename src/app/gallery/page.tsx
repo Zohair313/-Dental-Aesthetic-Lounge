@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Image from "next/image";
 import { Camera, ClipboardList, MousePointerClick } from "lucide-react";
 import { CTABand } from "@/components/CTABand";
@@ -10,7 +10,7 @@ import { Section } from "@/components/ui/Section";
 export const metadata: Metadata = {
   title: "Before & After Gallery",
   description:
-    "Interactive before and after case studies from Dental & Aesthetic Lounge, Johar Town Lahore — veneers, aligners, whitening, laser pigmentation and skin rejuvenation.",
+    "Interactive before and after case studies from Dental & Aesthetic Lounge, Johar Town Lahore â€” veneers, aligners, whitening, laser pigmentation and skin rejuvenation.",
   alternates: { canonical: "/gallery" },
 };
 
@@ -18,7 +18,7 @@ const notes = [
   {
     icon: MousePointerClick,
     title: "Drag to compare",
-    copy: "Every case opens with a slider — drag it (or use the arrow keys) to wipe between before and after.",
+    copy: "Every case opens with a slider â€” drag it (or use the arrow keys) to wipe between before and after.",
   },
   {
     icon: Camera,
@@ -45,7 +45,7 @@ export default function GalleryPage() {
         <div className="mb-12 grid gap-4 sm:grid-cols-3">
           <div className="relative h-44 overflow-hidden rounded-3xl border border-ink/8 bg-sand sm:col-span-2">
             <Image
-              src="/img/smile-after.jpg"
+              src="/img/smile.jpg"
               alt="A bright, even smile after cosmetic dental treatment"
               fill
               sizes="(max-width: 640px) 100vw, 66vw"
@@ -54,7 +54,7 @@ export default function GalleryPage() {
           </div>
           <div className="relative h-44 overflow-hidden rounded-3xl border border-ink/8 bg-night">
             <Image
-              src="/img/brand-lockup.jpg"
+              src="/img/og-image.jpg"
               alt="Dental & Aesthetic Lounge brand lockup"
               fill
               sizes="(max-width: 640px) 100vw, 33vw"
@@ -89,7 +89,7 @@ export default function GalleryPage() {
           cases shown here are illustrative renders used while the clinic&apos;s
           patient photo archive is being digitised and consent-cleared. Once
           real, consented photographs are supplied, this gallery automatically
-          switches to them — no code changes required.
+          switches to them â€” no code changes required.
         </div>
       </Section>
 

@@ -1,6 +1,6 @@
-/**
+﻿/**
  * Generates the clinic's illustrative SVG artwork (no external assets).
- * Run: node scripts/generate-art.mjs  → writes into public/art/
+ * Run: node scripts/generate-art.mjs  â†’ writes into public/art/
  */
 import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
@@ -45,7 +45,7 @@ function tooth(cx, cy, s, fill = "url(#toothw)") {
 
 const scenes = {};
 
-/* ── 1. Clinic reception / interior ─────────────────────────────────────── */
+/* â”€â”€ 1. Clinic reception / interior â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 scenes["clinic-interior"] = frame(
   `<rect width="800" height="600" fill="url(#wall)"/>
    <rect width="800" height="600" fill="url(#softlight)"/>
@@ -93,7 +93,7 @@ scenes["clinic-interior"] = frame(
   commonDefs,
 );
 
-/* ── 2. Dental treatment room ───────────────────────────────────────────── */
+/* â”€â”€ 2. Dental treatment room â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 scenes["dental-room"] = frame(
   `<rect width="800" height="600" fill="url(#wall)"/>
    <rect width="800" height="600" fill="url(#softlight)"/>
@@ -132,7 +132,7 @@ scenes["dental-room"] = frame(
   commonDefs,
 );
 
-/* ── 3. Laser / skin treatment room ─────────────────────────────────────── */
+/* â”€â”€ 3. Laser / skin treatment room â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 scenes["laser-room"] = frame(
   `<rect width="800" height="600" fill="url(#wall)"/>
    <rect width="800" height="600" fill="url(#softlight)"/>
@@ -179,7 +179,7 @@ scenes["laser-room"] = frame(
   commonDefs,
 );
 
-/* ── 4. Clinic facade ───────────────────────────────────────────────────── */
+/* â”€â”€ 4. Clinic facade â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 scenes["clinic-facade"] = frame(
   `<rect width="800" height="600" fill="#e8eef4"/>
    <rect width="800" height="600" fill="url(#softlight)"/>
@@ -218,7 +218,7 @@ scenes["clinic-facade"] = frame(
   commonDefs,
 );
 
-/* ── 5. Sterilised instruments ───────────────────────────────────────────── */
+/* â”€â”€ 5. Sterilised instruments â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 scenes["instruments"] = frame(
   `<rect width="800" height="600" fill="url(#wall)"/>
    <rect width="800" height="600" fill="url(#softlight)"/>
@@ -253,59 +253,7 @@ scenes["instruments"] = frame(
   commonDefs,
 );
 
-/* ── 6. Team portrait placeholder (dentist) ─────────────────────────────── */
-function portrait({ coat = "#f7f9fb", accent = GOLD, skin = "#eac6a8", hair = "#3a2f28", scrub }) {
-  return frame(
-    `<rect width="800" height="600" fill="#f4ede3"/>
-     <rect width="800" height="600" fill="url(#softlight)"/>
-     <circle cx="400" cy="250" r="230" fill="#efe4d4" opacity="0.65"/>
-     <!-- shoulders / coat -->
-     <path d="M180 600 C 200 470 280 420 400 420 C 520 420 600 470 620 600 Z" fill="${coat}" stroke="#d9dee3" stroke-width="4"/>
-     ${scrub ? `<path d="M300 600 C 306 500 340 452 400 452 C 460 452 494 500 500 600 Z" fill="${scrub}"/>` : ""}
-     <!-- collar -->
-     <path d="M340 424 L 400 492 L 460 424" fill="none" stroke="#d9dee3" stroke-width="5"/>
-     <!-- neck -->
-     <rect x="366" y="352" width="68" height="86" rx="30" fill="${skin}"/>
-     <!-- head -->
-     <ellipse cx="400" cy="272" rx="94" ry="106" fill="${skin}"/>
-     <!-- hair -->
-     <path d="M306 262 C 306 176 344 142 400 142 C 456 142 494 176 494 262 C 486 216 456 200 400 200 C 344 200 314 216 306 262 Z" fill="${hair}"/>
-     <!-- ears -->
-     <ellipse cx="307" cy="282" rx="15" ry="22" fill="${skin}"/>
-     <ellipse cx="493" cy="282" rx="15" ry="22" fill="${skin}"/>
-     <!-- brows -->
-     <path d="M344 246 q 26 -14 52 -2" stroke="${hair}" stroke-width="9" fill="none" stroke-linecap="round"/>
-     <path d="M404 244 q 26 -12 52 2" stroke="${hair}" stroke-width="9" fill="none" stroke-linecap="round"/>
-     <!-- eyes -->
-     <ellipse cx="368" cy="278" rx="11" ry="12" fill="#2f2620"/>
-     <ellipse cx="432" cy="278" rx="11" ry="12" fill="#2f2620"/>
-     <circle cx="372" cy="274" r="3.6" fill="#ffffff"/>
-     <circle cx="436" cy="274" r="3.6" fill="#ffffff"/>
-     <!-- nose -->
-     <path d="M400 292 q -10 24 4 30" stroke="#c99b7c" stroke-width="5" fill="none" stroke-linecap="round"/>
-     <!-- smile -->
-     <path d="M362 342 q 38 30 76 0" stroke="#b06a5f" stroke-width="7" fill="none" stroke-linecap="round"/>
-     <!-- stethoscope -->
-     <path d="M330 460 C 330 540 400 556 400 592" stroke="#8b959d" stroke-width="9" fill="none"/>
-     <circle cx="404" cy="592" r="18" fill="${accent}" opacity="0.85"/>`,
-    commonDefs,
-  );
-}
-
-scenes["doctor-1"] = portrait({});
-scenes["doctor-2"] = portrait({
-  hair: "#241c17",
-  coat: "#f7f9fb",
-  scrub: "#e8f0f4",
-});
-scenes["doctor-3"] = portrait({
-  hair: "#4a3728",
-  coat: "#ffffff",
-  accent: "#c0857b",
-  scrub: "#f6e9e6",
-});
-
-/* ── 7. OG / social share image ─────────────────────────────────────────── */
+/* â”€â”€ 7. OG / social share image â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 scenes["og-image"] = frame(
   `<rect width="800" height="600" fill="${INK}"/>
    <rect width="800" height="600" fill="url(#softlight)" opacity="0.5"/>
@@ -314,12 +262,12 @@ scenes["og-image"] = frame(
    <rect x="56" y="56" width="688" height="488" rx="28" fill="none" stroke="${GOLD}" stroke-width="2" opacity="0.5"/>
    ${tooth(400, 250, 1.5, "url(#goldg)")}
    <text x="400" y="416" text-anchor="middle" font-family="Georgia, serif" font-size="42" font-weight="700" fill="#fbf7f1">Dental &amp; Aesthetic Lounge</text>
-   <text x="400" y="462" text-anchor="middle" font-family="Helvetica, Arial" font-size="21" letter-spacing="4" fill="${GOLD}">DENTAL &amp; SKIN CLINIC — JOHAR TOWN, LAHORE</text>
-   <text x="400" y="510" text-anchor="middle" font-family="Helvetica, Arial" font-size="19" fill="#cdbfa8">+92 303 017 1000   ·   5.0 ★ (45 reviews)</text>`,
+   <text x="400" y="462" text-anchor="middle" font-family="Helvetica, Arial" font-size="21" letter-spacing="4" fill="${GOLD}">DENTAL &amp; SKIN CLINIC â€” JOHAR TOWN, LAHORE</text>
+   <text x="400" y="510" text-anchor="middle" font-family="Helvetica, Arial" font-size="19" fill="#cdbfa8">+92 303 017 1000   Â·   5.0 â˜… (45 reviews)</text>`,
   commonDefs,
 );
 
-/* ── 8. Dental check-up close-up ────────────────────────────────────────── */
+/* â”€â”€ 8. Dental check-up close-up â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 scenes["checkup-closeup"] = frame(
   `<rect width="800" height="600" fill="url(#wall)"/>
    <rect width="800" height="600" fill="url(#softlight)"/>
@@ -351,7 +299,7 @@ scenes["checkup-closeup"] = frame(
   commonDefs,
 );
 
-/* ── 9. Bright smile after treatment ────────────────────────────────────── */
+/* â”€â”€ 9. Bright smile after treatment â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 scenes["smile-after"] = frame(
   `<rect width="800" height="600" fill="#f7ece4"/>
    <rect width="800" height="600" fill="url(#softlight)"/>
@@ -378,7 +326,7 @@ scenes["smile-after"] = frame(
   commonDefs,
 );
 
-/* ── 10. Skincare consultation ──────────────────────────────────────────── */
+/* â”€â”€ 10. Skincare consultation â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 scenes["consultation"] = frame(
   `<rect width="800" height="600" fill="url(#wall)"/>
    <rect width="800" height="600" fill="url(#softlight)"/>
@@ -417,7 +365,7 @@ scenes["consultation"] = frame(
   commonDefs,
 );
 
-/* ── 11. Kids' dentistry ────────────────────────────────────────────────── */
+/* â”€â”€ 11. Kids' dentistry â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 scenes["kids-dentistry"] = frame(
   `<rect width="800" height="600" fill="#f2f7fa"/>
    <rect width="800" height="600" fill="url(#softlight)"/>
@@ -439,7 +387,7 @@ scenes["kids-dentistry"] = frame(
   commonDefs,
 );
 
-/* ── 12. Digital X-ray lightbox ─────────────────────────────────────────── */
+/* â”€â”€ 12. Digital X-ray lightbox â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 scenes["xray"] = frame(
   `<rect width="800" height="600" fill="#1b2026"/>
    <rect width="800" height="600" fill="url(#softlight)" opacity="0.25"/>
@@ -482,7 +430,7 @@ scenes["xray"] = frame(
   commonDefs,
 );
 
-/* ── 13. Clinic hallway ─────────────────────────────────────────────────── */
+/* â”€â”€ 13. Clinic hallway â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 scenes["hallway"] = frame(
   `<rect width="800" height="600" fill="url(#wall)"/>
    <rect width="800" height="600" fill="url(#softlight)"/>
@@ -521,7 +469,7 @@ scenes["hallway"] = frame(
   commonDefs,
 );
 
-/* ── 14. Sterilisation autoclave ────────────────────────────────────────── */
+/* â”€â”€ 14. Sterilisation autoclave â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 scenes["sterilisation"] = frame(
   `<rect width="800" height="600" fill="url(#wall)"/>
    <rect width="800" height="600" fill="url(#softlight)"/>
@@ -560,7 +508,7 @@ scenes["sterilisation"] = frame(
   commonDefs,
 );
 
-/* ── 15. Brand lockup card ──────────────────────────────────────────────── */
+/* â”€â”€ 15. Brand lockup card â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 scenes["brand-lockup"] = frame(
   `<rect width="800" height="600" fill="${INK}"/>
    <rect width="800" height="600" fill="url(#softlight)" opacity="0.4"/>
@@ -573,11 +521,11 @@ scenes["brand-lockup"] = frame(
    <g stroke="${GOLD}" stroke-width="2" opacity="0.5">
      <line x1="250" y1="452" x2="550" y2="452"/>
    </g>
-   <text x="400" y="486" text-anchor="middle" font-family="Helvetica, Arial" font-size="16" fill="#cdbfa8">Opposite G1 Market · Johar Town, Lahore</text>`,
+   <text x="400" y="486" text-anchor="middle" font-family="Helvetica, Arial" font-size="16" fill="#cdbfa8">Opposite G1 Market Â· Johar Town, Lahore</text>`,
   commonDefs,
 );
 
-/* ── Write files ────────────────────────────────────────────────────────── */
+/* â”€â”€ Write files â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 await mkdir(OUT, { recursive: true });
 for (const [name, svg] of Object.entries(scenes)) {
   await writeFile(path.join(OUT, `${name}.svg`), svg, "utf8");

@@ -1,4 +1,4 @@
-import { Check, Sparkles } from "lucide-react";
+﻿import { Check, Sparkles } from "lucide-react";
 import Image from "next/image";
 import { CTABand } from "@/components/CTABand";
 import { ClinicGallery } from "@/components/ClinicGallery";
@@ -11,6 +11,7 @@ import { WhyUs } from "@/components/WhyUs";
 import { ButtonLink } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section, SectionHeader } from "@/components/ui/Section";
+import { StockBadge, StockNote } from "@/components/ui/StockBadge";
 import { services } from "@/lib/data";
 
 export default function HomePage() {
@@ -57,7 +58,7 @@ export default function HomePage() {
           <SectionHeader
             eyebrow="Our treatments"
             title="Specialised dental & skin services"
-            description="From digital smile design to medical-grade laser therapies — every treatment is delivered with modern equipment and a personalised plan."
+            description="From digital smile design to medical-grade laser therapies â€” every treatment is delivered with modern equipment and a personalised plan."
           />
         </Reveal>
         <div className="mt-12">
@@ -93,7 +94,7 @@ export default function HomePage() {
           <SectionHeader
             eyebrow="Inside the lounge"
             title="Clean, calm and built for comfort"
-            description="Modern treatment suites, hospital-grade sterilisation and a lounge-style waiting area — designed so every visit feels easy."
+            description="Modern treatment suites, hospital-grade sterilisation and a lounge-style waiting area â€” designed so every visit feels easy."
           />
         </Reveal>
         <div className="mt-12">
@@ -114,32 +115,33 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* Spotlight — smile & kids */}
+      {/* Spotlight â€” smile & kids */}
       <Section size="sm">
         <div className="grid gap-6 lg:grid-cols-2">
           <Reveal>
             <SpotlightCard
-              src="/img/smile-after.jpg"
+              src="/img/smile.jpg"
               alt="A bright, even smile after veneer treatment"
               eyebrow="Smile design"
               title="A smile that still looks like you"
-              copy="Digital previews, layered porcelain and a shade matched to your face — natural results, never overdone."
+              copy="Digital previews, layered porcelain and a shade matched to your face â€” natural results, never overdone."
               href="/services"
               linkLabel="Explore smile design"
             />
           </Reveal>
           <Reveal delay={100}>
             <SpotlightCard
-              src="/img/kids-dentistry.jpg"
+              src="/img/skincare.jpg"
               alt="Friendly kids dentistry illustration at the clinic"
               eyebrow="Family dentistry"
               title="Gentle visits for little patients"
-              copy="Calm, child-friendly appointments — check-ups, fluoride care and habits that last a lifetime."
+              copy="Calm, child-friendly appointments â€” check-ups, fluoride care and habits that last a lifetime."
               href="/contact#book"
               linkLabel="Book a family visit"
             />
           </Reveal>
         </div>
+        <StockNote className="mt-6 text-center" />
       </Section>
 
       <Team />
@@ -182,6 +184,7 @@ function SpotlightCard({
           sizes="(max-width: 1024px) 100vw, 50vw"
           className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
         />
+        <StockBadge className="absolute top-3 right-3" />
       </div>
       <div className="flex flex-1 flex-col p-7">
         <p className="eyebrow">{eyebrow}</p>
