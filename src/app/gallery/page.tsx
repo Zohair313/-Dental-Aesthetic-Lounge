@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Camera, ClipboardList, MousePointerClick } from "lucide-react";
 import { CTABand } from "@/components/CTABand";
 import { GalleryGrid } from "@/components/GalleryGrid";
@@ -41,6 +42,27 @@ export default function GalleryPage() {
       />
 
       <Section>
+        <div className="mb-12 grid gap-4 sm:grid-cols-3">
+          <div className="relative h-44 overflow-hidden rounded-3xl border border-ink/8 bg-sand sm:col-span-2">
+            <Image
+              src="/img/smile-after.jpg"
+              alt="A bright, even smile after cosmetic dental treatment"
+              fill
+              sizes="(max-width: 640px) 100vw, 66vw"
+              className="object-cover"
+            />
+          </div>
+          <div className="relative h-44 overflow-hidden rounded-3xl border border-ink/8 bg-night">
+            <Image
+              src="/img/brand-lockup.jpg"
+              alt="Dental & Aesthetic Lounge brand lockup"
+              fill
+              sizes="(max-width: 640px) 100vw, 33vw"
+              className="object-cover"
+            />
+          </div>
+        </div>
+
         <div className="mb-12 grid gap-6 sm:grid-cols-3">
           {notes.map((n, i) => {
             const Icon = n.icon;

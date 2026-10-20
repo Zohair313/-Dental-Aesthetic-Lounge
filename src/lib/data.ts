@@ -301,7 +301,6 @@ export const team = [
 ] as const;
 
 /* ── Clinic gallery imagery (generated artwork in /public/img) ───────────── */
-
 export const clinicPhotos = [
   {
     src: "/img/clinic-interior.jpg",
@@ -327,6 +326,31 @@ export const clinicPhotos = [
     src: "/img/clinic-facade.jpg",
     alt: "Clinic exterior with signage",
     label: "Our Clinic",
+  },
+  {
+    src: "/img/hallway.jpg",
+    alt: "Treatment suite corridor leading to the dental rooms",
+    label: "The Corridor",
+  },
+  {
+    src: "/img/consultation.jpg",
+    alt: "Doctor discussing a treatment plan with a patient",
+    label: "Consultation",
+  },
+  {
+    src: "/img/xray.jpg",
+    alt: "Digital OPG X-ray review on the lightbox",
+    label: "Digital Imaging",
+  },
+  {
+    src: "/img/sterilisation.jpg",
+    alt: "Autoclave sterilisation unit with sealed instrument pouches",
+    label: "Autoclave",
+  },
+  {
+    src: "/img/checkup-closeup.jpg",
+    alt: "Dental check-up with a mouth mirror and dental explorer",
+    label: "Check-up",
   },
 ] as const;
 

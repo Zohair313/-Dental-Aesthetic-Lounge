@@ -77,20 +77,41 @@ export default function ServicesPage() {
             />
           </Reveal>
           <Reveal delay={80}>
-            <div className="relative mt-8 h-56 overflow-hidden rounded-3xl border border-ink/8 bg-sand sm:h-72">
-              <Image
-                src={
-                  catIndex === 0 ? "/img/dental-room.jpg" : "/img/laser-room.jpg"
-                }
-                alt={
-                  catIndex === 0
-                    ? "Dental treatment room at Dental & Aesthetic Lounge"
-                    : "Laser skin treatment room at Dental & Aesthetic Lounge"
-                }
-                fill
-                sizes="(max-width: 1152px) 100vw, 1152px"
-                className="object-cover"
-              />
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              <div className="relative h-56 overflow-hidden rounded-3xl border border-ink/8 bg-sand sm:h-72">
+                <Image
+                  src={
+                    catIndex === 0
+                      ? "/img/dental-room.jpg"
+                      : "/img/laser-room.jpg"
+                  }
+                  alt={
+                    catIndex === 0
+                      ? "Dental treatment room at Dental & Aesthetic Lounge"
+                      : "Laser skin treatment room at Dental & Aesthetic Lounge"
+                  }
+                  fill
+                  sizes="(max-width: 640px) 100vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative h-56 overflow-hidden rounded-3xl border border-ink/8 bg-sand sm:h-72">
+                <Image
+                  src={
+                    catIndex === 0
+                      ? "/img/xray.jpg"
+                      : "/img/consultation.jpg"
+                  }
+                  alt={
+                    catIndex === 0
+                      ? "Digital OPG X-ray being reviewed"
+                      : "Skincare consultation with a treatment plan"
+                  }
+                  fill
+                  sizes="(max-width: 640px) 100vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
             </div>
           </Reveal>
           <div className="mt-10">

@@ -319,6 +319,264 @@ scenes["og-image"] = frame(
   commonDefs,
 );
 
+/* ── 8. Dental check-up close-up ────────────────────────────────────────── */
+scenes["checkup-closeup"] = frame(
+  `<rect width="800" height="600" fill="url(#wall)"/>
+   <rect width="800" height="600" fill="url(#softlight)"/>
+   <rect x="0" y="0" width="800" height="280" fill="#f6efe4" opacity="0.7"/>
+   <!-- gloved hands + mirror -->
+   <g>
+     <rect x="150" y="300" width="230" height="120" rx="52" fill="#dfe8ee" stroke="#c2cfd7" stroke-width="4" transform="rotate(-8 265 360)"/>
+     <rect x="392" y="286" width="180" height="96" rx="44" fill="#e8f0f4" stroke="#c2cfd7" stroke-width="4" transform="rotate(-14 482 334)"/>
+     <g transform="rotate(28 470 300)">
+       <rect x="470" y="150" width="16" height="170" rx="8" fill="url(#metal)" stroke="#b9c0c7" stroke-width="3"/>
+       <circle cx="478" cy="140" r="26" fill="#dfe8ee" stroke="#aab4bc" stroke-width="5"/>
+       <circle cx="472" cy="134" r="10" fill="#ffffff" opacity="0.8"/>
+     </g>
+   </g>
+   <!-- smile strip -->
+   <g transform="translate(560 430)">
+     <path d="M-120 0 C -90 -46 -46 -58 0 -54 C 46 -58 90 -46 120 0 C 90 40 46 48 0 44 C -46 48 -90 40 -120 0 Z" fill="#5a2f2a"/>
+     <path d="M-102 -4 C -76 -36 -40 -42 0 -40 C 40 -42 76 -36 102 -4 C 76 6 40 10 0 8 C -40 10 -76 6 -102 -4 Z" fill="#d9938b"/>
+     <g fill="url(#toothw)">
+       <rect x="-74" y="-34" width="26" height="30" rx="8"/>
+       <rect x="-44" y="-38" width="30" height="34" rx="9"/>
+       <rect x="-10" y="-39" width="32" height="35" rx="9"/>
+       <rect x="26" y="-38" width="30" height="34" rx="9"/>
+       <rect x="60" y="-34" width="26" height="30" rx="8"/>
+     </g>
+   </g>
+   ${tooth(150, 170, 0.6, "url(#goldg)")}
+   <rect x="0" y="520" width="800" height="80" fill="#e9dfd0"/>`,
+  commonDefs,
+);
+
+/* ── 9. Bright smile after treatment ────────────────────────────────────── */
+scenes["smile-after"] = frame(
+  `<rect width="800" height="600" fill="#f7ece4"/>
+   <rect width="800" height="600" fill="url(#softlight)"/>
+   <circle cx="400" cy="330" r="250" fill="#ffffff" opacity="0.45"/>
+   <!-- lips + bright teeth -->
+   <g transform="translate(400 300)">
+     <path d="M-260 0 C -190 -110 -90 -140 0 -132 C 90 -140 190 -110 260 0 C 190 108 90 138 0 130 C -90 138 -190 108 -260 0 Z" fill="#8e4a45"/>
+     <path d="M-232 -6 C -170 -88 -80 -104 0 -98 C 80 -104 170 -88 232 -6 C 170 66 80 84 0 78 C -80 84 -170 66 -232 -6 Z" fill="#c9756d"/>
+     <g fill="url(#toothw)" stroke="#e2e6e2" stroke-width="2">
+       <rect x="-176" y="-82" width="58" height="72" rx="18"/>
+       <rect x="-112" y="-92" width="64" height="82" rx="20"/>
+       <rect x="-42" y="-96" width="68" height="86" rx="21"/>
+       <rect x="32" y="-92" width="64" height="82" rx="20"/>
+       <rect x="100" y="-82" width="58" height="72" rx="18"/>
+     </g>
+     <path d="M-196 -60 q 10 -22 26 -30" stroke="#ffffff" stroke-width="10" stroke-linecap="round" fill="none" opacity="0.85"/>
+   </g>
+   <!-- sparkles -->
+   <g fill="${GOLD}" opacity="0.75">
+     <path d="M660 130c4 20 14 30 34 34-20 4-30 14-34 34-4-20-14-30-34-34 20-4 30-14 34-34Z"/>
+     <path d="M132 150c3 15 10.5 22.5 25.5 25.5-15 3-22.5 10.5-25.5 25.5-3-15-10.5-22.5-25.5-25.5 15-3 22.5-10.5 25.5-25.5Z"/>
+     <path d="M690 470c2.4 12 8.4 18 20.4 20.4-12 2.4-18 8.4-20.4 20.4-2.4-12-8.4-18-20.4-20.4 12-2.4 18-8.4 20.4-20.4Z"/>
+   </g>`,
+  commonDefs,
+);
+
+/* ── 10. Skincare consultation ──────────────────────────────────────────── */
+scenes["consultation"] = frame(
+  `<rect width="800" height="600" fill="url(#wall)"/>
+   <rect width="800" height="600" fill="url(#softlight)"/>
+   <rect x="0" y="0" width="800" height="220" fill="#f3e6dc" opacity="0.55"/>
+   <!-- desk -->
+   <rect x="60" y="400" width="680" height="150" rx="20" fill="#efe4d4"/>
+   <rect x="60" y="400" width="680" height="22" rx="10" fill="url(#goldg)" opacity="0.8"/>
+   <!-- chart / tablet on desk -->
+   <rect x="110" y="336" width="200" height="80" rx="10" fill="#ffffff" opacity="0.9" transform="rotate(-4 210 376)"/>
+   <rect x="128" y="356" width="120" height="8" rx="4" fill="#cfd8dd" transform="rotate(-4 210 376)"/>
+   <rect x="128" y="374" width="160" height="8" rx="4" fill="#cfd8dd" transform="rotate(-4 210 376)"/>
+   <rect x="128" y="392" width="90" height="8" rx="4" fill="${GOLD}" transform="rotate(-4 210 376)"/>
+   <!-- doctor (left) -->
+   <g transform="translate(200 300)">
+     <path d="M-96 160 C -88 92 -50 62 0 62 C 50 62 88 92 96 160 Z" fill="#f7f9fb" stroke="#d9dee3" stroke-width="4"/>
+     <path d="M-34 64 L 0 104 L 34 64" fill="none" stroke="#d9dee3" stroke-width="5"/>
+     <rect x="-24" y="18" width="48" height="58" rx="22" fill="#eac6a8"/>
+     <ellipse cx="0" cy="-28" rx="62" ry="70" fill="#eac6a8"/>
+     <path d="M-62 -34 C -62 -92 -34 -114 0 -114 C 34 -114 62 -92 62 -34 C 56 -66 34 -78 0 -78 C -34 -78 -56 -66 -62 -34 Z" fill="#3a2f28"/>
+     <ellipse cx="-24" cy="-24" rx="7" ry="8" fill="#2f2620"/><ellipse cx="24" cy="-24" rx="7" ry="8" fill="#2f2620"/>
+     <path d="M-26 4 q 26 20 52 0" stroke="#b06a5f" stroke-width="6" fill="none" stroke-linecap="round"/>
+     <path d="M-58 96 C -58 148 0 158 0 186" stroke="#8b959d" stroke-width="8" fill="none"/>
+   </g>
+   <!-- patient (right) -->
+   <g transform="translate(600 306)">
+     <path d="M-92 154 C -84 88 -48 60 0 60 C 48 60 84 88 92 154 Z" fill="#e8f0f4" stroke="#d9e2e8" stroke-width="4"/>
+     <rect x="-22" y="16" width="44" height="54" rx="20" fill="#f0d2b6"/>
+     <ellipse cx="0" cy="-28" rx="58" ry="66" fill="#f0d2b6"/>
+     <path d="M-58 -30 C -58 -96 -30 -116 0 -116 C 30 -116 58 -96 58 -30 C 50 -74 30 -84 0 -84 C -30 -84 -50 -74 -58 -30 Z" fill="#4a3728"/>
+     <ellipse cx="-22" cy="-24" rx="6.5" ry="7.5" fill="#2f2620"/><ellipse cx="22" cy="-24" rx="6.5" ry="7.5" fill="#2f2620"/>
+     <path d="M-22 6 q 22 17 44 0" stroke="#b06a5f" stroke-width="6" fill="none" stroke-linecap="round"/>
+     <ellipse cx="-42" cy="10" rx="13" ry="7" fill="#e9a9a0" opacity="0.45"/>
+     <ellipse cx="42" cy="10" rx="13" ry="7" fill="#e9a9a0" opacity="0.45"/>
+   </g>
+   <rect x="0" y="520" width="800" height="80" fill="#e9dfd0"/>`,
+  commonDefs,
+);
+
+/* ── 11. Kids' dentistry ────────────────────────────────────────────────── */
+scenes["kids-dentistry"] = frame(
+  `<rect width="800" height="600" fill="#f2f7fa"/>
+   <rect width="800" height="600" fill="url(#softlight)"/>
+   <circle cx="400" cy="300" r="230" fill="#ffffff" opacity="0.5"/>
+   ${tooth(400, 250, 2.1, "url(#toothw)")}
+   <!-- smiling face on the tooth -->
+   <g fill="#3a2f28">
+     <ellipse cx="366" cy="238" rx="9" ry="10"/><ellipse cx="434" cy="238" rx="9" ry="10"/>
+   </g>
+   <path d="M362 292 q 38 34 76 0" stroke="#b06a5f" stroke-width="8" fill="none" stroke-linecap="round"/>
+   <circle cx="330" cy="272" r="12" fill="#f3b7b0" opacity="0.6"/>
+   <circle cx="470" cy="272" r="12" fill="#f3b7b0" opacity="0.6"/>
+   <!-- little stars -->
+   <g fill="${GOLD}" opacity="0.7">
+     <path d="M636 150c3.2 16 11.2 24 27.2 27.2-16 3.2-24 11.2-27.2 27.2-3.2-16-11.2-24-27.2-27.2 16-3.2 24-11.2 27.2-27.2Z"/>
+     <path d="M164 168c2.6 13 9.1 19.5 22.1 22.1-13 2.6-19.5 9.1-22.1 22.1-2.6-13-9.1-19.5-22.1-22.1 13-2.6 19.5-9.1 22.1-22.1Z"/>
+   </g>
+   <rect x="0" y="520" width="800" height="80" fill="#dfeaf1"/>`,
+  commonDefs,
+);
+
+/* ── 12. Digital X-ray lightbox ─────────────────────────────────────────── */
+scenes["xray"] = frame(
+  `<rect width="800" height="600" fill="#1b2026"/>
+   <rect width="800" height="600" fill="url(#softlight)" opacity="0.25"/>
+   <!-- lightbox panel -->
+   <rect x="80" y="60" width="640" height="440" rx="20" fill="#0f1418" stroke="#2f3b46" stroke-width="6"/>
+   <rect x="104" y="84" width="592" height="392" rx="12" fill="#243038"/>
+   <!-- panoramic dental arch -->
+   <g fill="#cfe3ef" opacity="0.92">
+     <path d="M150 300 C 170 180 300 140 400 140 C 500 140 630 180 650 300 C 630 236 500 200 400 200 C 300 200 170 236 150 300 Z" opacity="0.5"/>
+     <g>
+       <rect x="176" y="252" width="34" height="52" rx="10"/>
+       <rect x="216" y="240" width="36" height="58" rx="11"/>
+       <rect x="258" y="232" width="38" height="62" rx="12"/>
+       <rect x="302" y="228" width="38" height="64" rx="12"/>
+       <rect x="346" y="226" width="38" height="64" rx="12"/>
+       <rect x="390" y="226" width="38" height="64" rx="12"/>
+       <rect x="434" y="228" width="38" height="64" rx="12"/>
+       <rect x="478" y="232" width="38" height="62" rx="12"/>
+       <rect x="522" y="240" width="36" height="58" rx="11"/>
+       <rect x="562" y="252" width="34" height="52" rx="10"/>
+     </g>
+     <rect x="200" y="330" width="34" height="48" rx="10" opacity="0.85"/>
+     <rect x="244" y="324" width="34" height="50" rx="10" opacity="0.85"/>
+     <rect x="288" y="320" width="34" height="52" rx="10" opacity="0.85"/>
+     <rect x="332" y="318" width="34" height="52" rx="10" opacity="0.85"/>
+     <rect x="376" y="318" width="34" height="52" rx="10" opacity="0.85"/>
+     <rect x="420" y="320" width="34" height="52" rx="10" opacity="0.85"/>
+     <rect x="464" y="324" width="34" height="50" rx="10" opacity="0.85"/>
+     <rect x="508" y="330" width="34" height="48" rx="10" opacity="0.85"/>
+   </g>
+   <!-- marker crosshair -->
+   <g stroke="${GOLD}" stroke-width="4" opacity="0.9">
+     <line x1="404" y1="176" x2="404" y2="152"/><line x1="404" y1="404" x2="404" y2="428"/>
+     <line x1="352" y1="290" x2="328" y2="290"/><line x1="456" y1="290" x2="480" y2="290"/>
+   </g>
+   <text x="404" y="470" text-anchor="middle" font-family="Helvetica, Arial" font-size="18" letter-spacing="3" fill="#6f8593">DIGITAL OPG</text>
+   <!-- viewer stand -->
+   <rect x="360" y="500" width="80" height="40" fill="#2f3b46"/>
+   <rect x="300" y="536" width="200" height="18" rx="9" fill="#2f3b46"/>`,
+  commonDefs,
+);
+
+/* ── 13. Clinic hallway ─────────────────────────────────────────────────── */
+scenes["hallway"] = frame(
+  `<rect width="800" height="600" fill="url(#wall)"/>
+   <rect width="800" height="600" fill="url(#softlight)"/>
+   <!-- perspective corridor -->
+   <path d="M0 0 L 300 190 L 300 410 L 0 600 Z" fill="#efe4d4"/>
+   <path d="M800 0 L 500 190 L 500 410 L 800 600 Z" fill="#f6efe4"/>
+   <rect x="300" y="190" width="200" height="220" fill="#fdfbf8"/>
+   <!-- far door -->
+   <rect x="352" y="248" width="96" height="162" rx="8" fill="#d9c9b1" stroke="#c4b295" stroke-width="3"/>
+   <circle cx="434" cy="330" r="5" fill="${GOLD}"/>
+   <!-- left doors -->
+   <g fill="#e8dcc9" stroke="#d4c5ad" stroke-width="3">
+     <rect x="52" y="196" width="96" height="152" rx="8"/>
+     <rect x="176" y="230" width="72" height="120" rx="8"/>
+   </g>
+   <!-- right doors -->
+   <g fill="#efe4d4" stroke="#d4c5ad" stroke-width="3">
+     <rect x="652" y="196" width="96" height="152" rx="8"/>
+     <rect x="552" y="230" width="72" height="120" rx="8"/>
+   </g>
+   <!-- pendant lights in perspective -->
+   <g stroke="${GOLD}" stroke-width="3" opacity="0.75">
+     <line x1="330" y1="0" x2="352" y2="86"/><line x1="470" y1="0" x2="448" y2="86"/>
+     <line x1="200" y1="0" x2="300" y2="140"/><line x1="600" y1="0" x2="500" y2="140"/>
+   </g>
+   <circle cx="352" cy="92" r="10" fill="url(#goldg)"/>
+   <circle cx="448" cy="92" r="10" fill="url(#goldg)"/>
+   <circle cx="300" cy="146" r="7" fill="url(#goldg)"/>
+   <circle cx="500" cy="146" r="7" fill="url(#goldg)"/>
+   <!-- floor -->
+   <path d="M0 600 L 300 410 L 500 410 L 800 600 Z" fill="#e9dfd0"/>
+   <path d="M340 600 L 396 410 L 404 410 L 460 600 Z" fill="${GOLD_SOFT}" opacity="0.7"/>
+   <!-- wall sign -->
+   <rect x="368" y="206" width="64" height="26" rx="6" fill="${INK}"/>
+   ${tooth(400, 219, 0.14, "url(#goldg)")}`,
+  commonDefs,
+);
+
+/* ── 14. Sterilisation autoclave ────────────────────────────────────────── */
+scenes["sterilisation"] = frame(
+  `<rect width="800" height="600" fill="url(#wall)"/>
+   <rect width="800" height="600" fill="url(#softlight)"/>
+   <rect x="0" y="0" width="800" height="250" fill="#eef4f7" opacity="0.6"/>
+   <!-- autoclave unit -->
+   <rect x="90" y="180" width="280" height="300" rx="22" fill="url(#metal)" stroke="#b9c0c7" stroke-width="4"/>
+   <rect x="120" y="212" width="220" height="140" rx="14" fill="#2f3b46"/>
+   <circle cx="230" cy="282" r="46" fill="#1f2a33" stroke="#4a5a66" stroke-width="4"/>
+   <circle cx="230" cy="282" r="26" fill="#31414c"/>
+   <rect x="230" y="240" width="6" height="46" rx="3" fill="#8fd0a3"/>
+   <rect x="126" y="372" width="94" height="18" rx="9" fill="#cfd8dd"/>
+   <rect x="126" y="402" width="60" height="14" rx="7" fill="#8fd0a3"/>
+   <rect x="200" y="402" width="60" height="14" rx="7" fill="#e0c489"/>
+   <rect x="274" y="402" width="60" height="14" rx="7" fill="#c6ccd2"/>
+   <!-- instrument pouches -->
+   <g>
+     <rect x="440" y="200" width="130" height="90" rx="12" fill="#ffffff" stroke="#d6dee3" stroke-width="3"/>
+     <rect x="440" y="306" width="130" height="90" rx="12" fill="#ffffff" stroke="#d6dee3" stroke-width="3"/>
+     <rect x="596" y="200" width="130" height="90" rx="12" fill="#ffffff" stroke="#d6dee3" stroke-width="3"/>
+     <rect x="596" y="306" width="130" height="90" rx="12" fill="#ffffff" stroke="#d6dee3" stroke-width="3"/>
+   </g>
+   <g stroke="#aab4bc" stroke-width="7" stroke-linecap="round">
+     <line x1="462" y1="272" x2="540" y2="222"/>
+     <line x1="616" y1="272" x2="700" y2="228"/>
+   </g>
+   <g fill="${GOLD}" opacity="0.85">
+     <circle cx="560" cy="222" r="14"/><circle cx="712" cy="228" r="14"/><circle cx="560" cy="330" r="14"/><circle cx="712" cy="330" r="14"/>
+   </g>
+   <g fill="#ffffff" opacity="0.9">
+     <path d="M556 216 l 4 8 8 -8 -2 10 9 3 -9 3 2 10 -8 -8 -4 8 -4 -8 -8 8 2 -10 -9 -3 9 -3 -2 -10 8 8 Z" transform="translate(0 -6) scale(0.62) translate(348 130)"/>
+   </g>
+   <!-- pedal bin -->
+   <rect x="596" y="440" width="120" height="130" rx="14" fill="#e6edf1" stroke="#c2cfd7" stroke-width="3"/>
+   <rect x="586" y="424" width="140" height="24" rx="12" fill="#cfd8dd"/>
+   <rect x="0" y="540" width="800" height="60" fill="#e9dfd0"/>`,
+  commonDefs,
+);
+
+/* ── 15. Brand lockup card ──────────────────────────────────────────────── */
+scenes["brand-lockup"] = frame(
+  `<rect width="800" height="600" fill="${INK}"/>
+   <rect width="800" height="600" fill="url(#softlight)" opacity="0.4"/>
+   <circle cx="680" cy="90" r="230" fill="${GOLD}" opacity="0.15"/>
+   <circle cx="120" cy="520" r="200" fill="#c0857b" opacity="0.13"/>
+   <rect x="70" y="70" width="660" height="460" rx="30" fill="none" stroke="${GOLD}" stroke-width="2" opacity="0.45"/>
+   ${tooth(400, 232, 1.35, "url(#goldg)")}
+   <text x="400" y="384" text-anchor="middle" font-family="Georgia, serif" font-size="40" font-weight="700" fill="#fbf7f1">Dental &amp; Aesthetic Lounge</text>
+   <text x="400" y="424" text-anchor="middle" font-family="Helvetica, Arial" font-size="17" letter-spacing="5" fill="${GOLD}">DENTAL &amp; SKIN CLINIC</text>
+   <g stroke="${GOLD}" stroke-width="2" opacity="0.5">
+     <line x1="250" y1="452" x2="550" y2="452"/>
+   </g>
+   <text x="400" y="486" text-anchor="middle" font-family="Helvetica, Arial" font-size="16" fill="#cdbfa8">Opposite G1 Market · Johar Town, Lahore</text>`,
+  commonDefs,
+);
+
 /* ── Write files ────────────────────────────────────────────────────────── */
 await mkdir(OUT, { recursive: true });
 for (const [name, svg] of Object.entries(scenes)) {

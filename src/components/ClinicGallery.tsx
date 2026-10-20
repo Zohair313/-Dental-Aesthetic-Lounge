@@ -3,11 +3,20 @@ import { clinicPhotos } from "@/lib/data";
 import { Reveal } from "./ui/Reveal";
 
 const spans = [
+  // 1 Reception — hero tile
   "sm:col-span-2 lg:col-span-2 lg:row-span-2",
+  // 2-5 paired rows
+  "lg:col-span-1",
+  "lg:col-span-1",
+  "lg:col-span-1",
+  "lg:col-span-1",
+  // 6-9 wide tiles
+  "sm:col-span-2 lg:col-span-2",
+  "sm:col-span-2 lg:col-span-2",
   "lg:col-span-2",
   "lg:col-span-2",
-  "lg:col-span-2",
-  "lg:col-span-2",
+  // 10 full width
+  "sm:col-span-2 lg:col-span-4",
 ];
 
 export function ClinicGallery() {

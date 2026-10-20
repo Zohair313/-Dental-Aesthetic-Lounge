@@ -1,4 +1,5 @@
 import { Check, Sparkles } from "lucide-react";
+import Image from "next/image";
 import { CTABand } from "@/components/CTABand";
 import { ClinicGallery } from "@/components/ClinicGallery";
 import { ContactSection } from "@/components/ContactSection";
@@ -113,6 +114,34 @@ export default function HomePage() {
         </div>
       </Section>
 
+      {/* Spotlight — smile & kids */}
+      <Section size="sm">
+        <div className="grid gap-6 lg:grid-cols-2">
+          <Reveal>
+            <SpotlightCard
+              src="/img/smile-after.jpg"
+              alt="A bright, even smile after veneer treatment"
+              eyebrow="Smile design"
+              title="A smile that still looks like you"
+              copy="Digital previews, layered porcelain and a shade matched to your face — natural results, never overdone."
+              href="/services"
+              linkLabel="Explore smile design"
+            />
+          </Reveal>
+          <Reveal delay={100}>
+            <SpotlightCard
+              src="/img/kids-dentistry.jpg"
+              alt="Friendly kids dentistry illustration at the clinic"
+              eyebrow="Family dentistry"
+              title="Gentle visits for little patients"
+              copy="Calm, child-friendly appointments — check-ups, fluoride care and habits that last a lifetime."
+              href="/contact#book"
+              linkLabel="Book a family visit"
+            />
+          </Reveal>
+        </div>
+      </Section>
+
       <Team />
       <Testimonials />
 
@@ -123,6 +152,50 @@ export default function HomePage() {
 
       <CTABand />
     </>
+  );
+}
+
+function SpotlightCard({
+  src,
+  alt,
+  eyebrow,
+  title,
+  copy,
+  href,
+  linkLabel,
+}: {
+  src: string;
+  alt: string;
+  eyebrow: string;
+  title: string;
+  copy: string;
+  href: string;
+  linkLabel: string;
+}) {
+  return (
+    <article className="card surface-shadow group flex h-full flex-col overflow-hidden">
+      <div className="relative aspect-[16/10] w-full overflow-hidden bg-sand">
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          sizes="(max-width: 1024px) 100vw, 50vw"
+          className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+        />
+      </div>
+      <div className="flex flex-1 flex-col p-7">
+        <p className="eyebrow">{eyebrow}</p>
+        <h3 className="mt-3 font-display text-2xl font-semibold text-ink">
+          {title}
+        </h3>
+        <p className="mt-3 flex-1 text-[15px] leading-relaxed text-muted">
+          {copy}
+        </p>
+        <ButtonLink href={href} variant="outline" className="mt-6 w-fit">
+          {linkLabel}
+        </ButtonLink>
+      </div>
+    </article>
   );
 }
 
