@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { HugeiconsIcon, type IconSvgElement } from "@hugeicons/react";
 import {
+  BoltIcon,
   DentalBracesIcon,
   DentalBrokenToothIcon,
   DentalCareIcon,
@@ -12,7 +13,6 @@ import {
   HealthIcon,
   ScanEyeIcon,
   ShieldCheckIcon,
-  SyringeIcon,
 } from "@hugeicons/core-free-icons";
 import { services, type Service } from "@/lib/data";
 import { IconTile } from "./ui/IconTile";
@@ -52,7 +52,7 @@ const iconMap: Record<string, IconComponent | typeof Sparkles> = {
   veneers: huge(DentalToothIcon),
   align: huge(DentalBracesIcon),
   whitening: Sparkles,
-  implant: huge(SyringeIcon),
+  implant: huge(BoltIcon),
   rootCanal: huge(DentalBrokenToothIcon),
   dentalCare: huge(DentalCareIcon),
   tooth: huge(DentalToothIcon),
