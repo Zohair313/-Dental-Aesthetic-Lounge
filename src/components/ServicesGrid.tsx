@@ -1,47 +1,68 @@
 import Link from "next/link";
-import { ArrowRight, Sparkles, type LucideIcon } from "lucide-react";
-import type { ComponentType } from "react";
+import { ArrowRight, Sparkles } from "lucide-react";
+import { HugeiconsIcon, type IconSvgElement } from "@hugeicons/react";
+import {
+  DentalBracesIcon,
+  DentalBrokenToothIcon,
+  DentalCareIcon,
+  DentalToothIcon,
+  DropletIcon,
+  DropletsIcon,
+  FaceIdIcon,
+  HealthIcon,
+  ScanEyeIcon,
+  ShieldCheckIcon,
+  SyringeIcon,
+} from "@hugeicons/core-free-icons";
 import { services, type Service } from "@/lib/data";
 import { IconTile } from "./ui/IconTile";
-import {
-  BracesIcon,
-  DentalCareIcon,
-  FaceGlowIcon,
-  ImplantIcon,
-  LaserIcon,
-  LiftIcon,
-  RootCanalIcon,
-  SerumIcon,
-  SkinLayersIcon,
-  SkinShieldIcon,
-  ToothIcon,
-  VeneerIcon,
-  WhiteningIcon,
-} from "./ui/icons";
 
 /**
- * Dental and aesthetic glyphs are hand-drawn in `ui/icons.tsx` because
- * lucide-react has no tooth, implant, brace or laser shapes. Both sets satisfy
- * the same `{ className, strokeWidth }` contract, hence the shared type.
+ * Treatment glyphs come from two MIT-licensed libraries: lucide-react and
+ * Hugeicons (@hugeicons/core-free-icons). Hugeicons supplies the dental and
+ * facial-aesthetics shapes that lucide does not ship — tooth, braces, broken
+ * tooth, dental care, face, scan and syringe.
+ *
+ * Hugeicons exports icon *data* rather than components, so each entry is
+ * normalised into a plain `{ className, strokeWidth }` component and
+ * `IconTile` stays agnostic about which library an icon came from.
  */
-type ServiceIcon = LucideIcon | ComponentType<{ className?: string; strokeWidth?: number }>;
+type IconComponent = (props: {
+  className?: string;
+  strokeWidth?: number;
+}) => React.ReactElement;
 
-const iconMap: Record<string, ServiceIcon> = {
+function huge(icon: IconSvgElement): IconComponent {
+  function HugeIcon({
+    className,
+    strokeWidth,
+  }: {
+    className?: string;
+    strokeWidth?: number;
+  }) {
+    return (
+      <HugeiconsIcon icon={icon} className={className} strokeWidth={strokeWidth} />
+    );
+  }
+  return HugeIcon;
+}
+
+const iconMap: Record<string, IconComponent | typeof Sparkles> = {
   // dental
-  veneers: VeneerIcon,
-  align: BracesIcon,
-  whitening: WhiteningIcon,
-  implant: ImplantIcon,
-  rootCanal: RootCanalIcon,
-  tooth: ToothIcon,
-  dentalCare: DentalCareIcon,
+  veneers: huge(DentalToothIcon),
+  align: huge(DentalBracesIcon),
+  whitening: Sparkles,
+  implant: huge(SyringeIcon),
+  rootCanal: huge(DentalBrokenToothIcon),
+  dentalCare: huge(DentalCareIcon),
+  tooth: huge(DentalToothIcon),
   // skin & aesthetics
-  laser: LaserIcon,
-  serum: SerumIcon,
-  faceGlow: FaceGlowIcon,
-  skinLayers: SkinLayersIcon,
-  skinShield: SkinShieldIcon,
-  lift: LiftIcon,
+  laser: huge(ScanEyeIcon),
+  serum: huge(DropletIcon),
+  faceGlow: huge(FaceIdIcon),
+  skinLayers: huge(DropletsIcon),
+  skinShield: huge(ShieldCheckIcon),
+  lift: huge(HealthIcon),
   // fallback
   sparkles: Sparkles,
 };
