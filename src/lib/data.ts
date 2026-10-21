@@ -57,7 +57,7 @@ export const services: Service[] = [
       "Usually completed in 2–3 visits",
       "Colour and shape matched to your face",
     ],
-    icon: "sparkles",
+    icon: "veneers",
   },
   {
     slug: "aligners-braces",
@@ -83,7 +83,7 @@ export const services: Service[] = [
       "Safe for enamel with desensitising protocol",
       "Shade guide documented before & after",
     ],
-    icon: "sun",
+    icon: "whitening",
   },
   {
     slug: "dental-implants",
@@ -96,7 +96,7 @@ export const services: Service[] = [
       "Single sitting and delayed protocols available",
       "Multi-session tracking with session countdown",
     ],
-    icon: "anchor",
+    icon: "implant",
   },
   {
     slug: "root-canal",
@@ -109,7 +109,7 @@ export const services: Service[] = [
       "Immediate crown/final restoration advice",
       "Emergency pain relief prioritised",
     ],
-    icon: "heartPulse",
+    icon: "rootCanal",
   },
   {
     slug: "checkup-cleaning",
@@ -122,7 +122,7 @@ export const services: Service[] = [
       "Gum disease treatment and follow-ups",
       "Kids' dentistry and fluoride care",
     ],
-    icon: "shield",
+    icon: "dentalCare",
   },
 
   // ── Skin & Aesthetics ─────────────────────────────────────────────────────
@@ -137,7 +137,7 @@ export const services: Service[] = [
       "Packages tracked session-by-session",
       "Downtime and aftercare guidance included",
     ],
-    icon: "wand",
+    icon: "laser",
   },
   {
     slug: "pigmentation-melasma",
@@ -150,7 +150,7 @@ export const services: Service[] = [
       "Progress photographed every session",
       "Maintenance plan to prevent recurrence",
     ],
-    icon: "droplet",
+    icon: "serum",
   },
   {
     slug: "acne-scars",
@@ -163,7 +163,7 @@ export const services: Service[] = [
       "Combined medical + procedural protocol",
       "Visible improvement tracked over sessions",
     ],
-    icon: "flower",
+    icon: "skinLayers",
   },
   {
     slug: "hydrafacial-glow",
@@ -176,7 +176,7 @@ export const services: Service[] = [
       "Event-ready glow with no downtime",
       "Monthly packages available",
     ],
-    icon: "droplets",
+    icon: "serum",
   },
   {
     slug: "anti-aging",
@@ -189,7 +189,7 @@ export const services: Service[] = [
       "Natural-looking, gradual results",
       "Personalised age-defying plans",
     ],
-    icon: "clock",
+    icon: "lift",
   },
   {
     slug: "laser-hair-reduction",
@@ -202,7 +202,7 @@ export const services: Service[] = [
       "Cooling for a comfortable experience",
       "Course of 6–8 sessions typical",
     ],
-    icon: "zap",
+    icon: "laser",
   },
 ];
 

@@ -1,36 +1,49 @@
 import Link from "next/link";
-import {
-  Anchor,
-  AlignCenter,
-  ArrowRight,
-  Clock3,
-  Droplet,
-  Droplets,
-  Flower2,
-  HeartPulse,
-  ShieldCheck,
-  Sparkles,
-  Sun,
-  Wand2,
-  Zap,
-  type LucideIcon,
-} from "lucide-react";
+import { ArrowRight, Sparkles, type LucideIcon } from "lucide-react";
+import type { ComponentType } from "react";
 import { services, type Service } from "@/lib/data";
 import { IconTile } from "./ui/IconTile";
+import {
+  BracesIcon,
+  DentalCareIcon,
+  FaceGlowIcon,
+  ImplantIcon,
+  LaserIcon,
+  LiftIcon,
+  RootCanalIcon,
+  SerumIcon,
+  SkinLayersIcon,
+  SkinShieldIcon,
+  ToothIcon,
+  VeneerIcon,
+  WhiteningIcon,
+} from "./ui/icons";
 
-const iconMap: Record<string, LucideIcon> = {
+/**
+ * Dental and aesthetic glyphs are hand-drawn in `ui/icons.tsx` because
+ * lucide-react has no tooth, implant, brace or laser shapes. Both sets satisfy
+ * the same `{ className, strokeWidth }` contract, hence the shared type.
+ */
+type ServiceIcon = LucideIcon | ComponentType<{ className?: string; strokeWidth?: number }>;
+
+const iconMap: Record<string, ServiceIcon> = {
+  // dental
+  veneers: VeneerIcon,
+  align: BracesIcon,
+  whitening: WhiteningIcon,
+  implant: ImplantIcon,
+  rootCanal: RootCanalIcon,
+  tooth: ToothIcon,
+  dentalCare: DentalCareIcon,
+  // skin & aesthetics
+  laser: LaserIcon,
+  serum: SerumIcon,
+  faceGlow: FaceGlowIcon,
+  skinLayers: SkinLayersIcon,
+  skinShield: SkinShieldIcon,
+  lift: LiftIcon,
+  // fallback
   sparkles: Sparkles,
-  align: AlignCenter,
-  sun: Sun,
-  anchor: Anchor,
-  heartPulse: HeartPulse,
-  shield: ShieldCheck,
-  wand: Wand2,
-  droplet: Droplet,
-  flower: Flower2,
-  droplets: Droplets,
-  clock: Clock3,
-  zap: Zap,
 };
 
 function ServiceCard({ service }: { service: Service }) {
