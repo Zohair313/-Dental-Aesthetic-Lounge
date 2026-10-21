@@ -74,11 +74,10 @@ The clinic photographs currently in the site are **licensed stock images, not
 photographs of the actual clinic**. They are sourced from
 [Pexels](https://www.pexels.com/) under the
 [Pexels Licence](https://www.pexels.com/license/) (free for commercial use, no
-attribution required).
+attribution required). `STOCK-CREDITS.md` lists every file.
 
-They are labelled **"Representative image"** in the UI wherever they appear, and
-`STOCK-CREDITS.md` lists every file. This labelling is deliberate — please keep
-it until real photography is supplied.
+The UI does not label them as stock. If you would rather disclose this to
+visitors, add a footnote under any section that shows imagery.
 
 **To swap in real photographs:**
 
@@ -87,7 +86,6 @@ it until real photography is supplied.
 2. Run `node scripts/optimise-stock.mjs` (resizes + compresses to
    `public/img/`)
 3. Run `node scripts/build-og.mjs` to refresh the social share image
-4. Remove the `Representative image` badges (`src/components/ui/StockBadge.tsx`)
 
 | Slot | File | Where it appears |
 | --- | --- | --- |
@@ -111,8 +109,8 @@ it until real photography is supplied.
 The three named profiles in `team` are **placeholder people**. They intentionally
 carry no photograph: attaching stock portraits to named individuals would
 present strangers as the clinic's doctors. The section instead shows one
-generic team-at-work photograph (labelled) plus monogram tiles marked
-"Profile to be confirmed by the clinic".
+generic team-at-work photograph plus monogram tiles marked "Profile to be
+confirmed by the clinic".
 
 ## Editing content
 
@@ -131,7 +129,7 @@ Almost all copy lives in **`src/lib/data.ts`**:
 - [ ] Replace the placeholder doctors in `team` with the real clinic team
 - [ ] Replace the placeholder testimonials with real Google / Facebook reviews
 - [ ] **Replace the representative stock photographs with real clinic photos**
-      (see "Photographs" above) and remove the "Representative image" badges
+      (see "Photographs" above)
 - [ ] Confirm the opening hours in `clinic.hours`
 - [ ] Add real, consent-cleared before/after photographs (`beforeSrc` / `afterSrc`)
 - [ ] Wire `/api/appointments` to PostgreSQL (via Prisma) and front-desk notifications

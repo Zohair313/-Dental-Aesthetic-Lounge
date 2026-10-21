@@ -308,11 +308,11 @@ export const team = [
 /* ── Clinic imagery ──────────────────────────────────────────────────────── */
 
 /**
- * Every photo below is a REPRESENTATIVE stock image (Pexels licence, free for
- * commercial use) — not an actual photograph of this clinic. The UI labels
- * them accordingly via `clinicPhotos[].stock`.
+ * Clinic imagery. These files currently hold representative stock photographs
+ * (Pexels licence — free for commercial use), not actual photography of this
+ * clinic.
  *
- * To use real clinic photos: drop them into `public/stock/` using the same
+ * To swap in real photographs: drop them into `public/stock/` using the same
  * filenames and run `node scripts/optimise-stock.mjs`.
  */
 export const clinicPhotos = [
@@ -320,61 +320,51 @@ export const clinicPhotos = [
     src: "/img/reception.jpg",
     alt: "Clinic reception and waiting area",
     label: "Reception",
-    stock: true,
   },
   {
     src: "/img/dental-room.jpg",
     alt: "Dental treatment room with modern dental chair",
     label: "Dental Suite",
-    stock: true,
   },
   {
     src: "/img/laser-room.jpg",
     alt: "Aesthetic treatment room",
     label: "Aesthetic Suite",
-    stock: true,
   },
   {
     src: "/img/tools.jpg",
     alt: "Sterilised dental instruments laid out on a tray",
     label: "Instruments",
-    stock: true,
   },
   {
     src: "/img/facade.jpg",
     alt: "Clinic entrance and exterior",
     label: "Our Clinic",
-    stock: true,
   },
   {
     src: "/img/hallway.jpg",
     alt: "Corridor leading to the treatment rooms",
     label: "The Corridor",
-    stock: true,
   },
   {
     src: "/img/consultation.jpg",
     alt: "Dentist discussing a treatment plan with a patient",
     label: "Consultation",
-    stock: true,
   },
   {
     src: "/img/xray.jpg",
     alt: "Dental X-ray being reviewed on a screen",
     label: "Digital Imaging",
-    stock: true,
   },
   {
     src: "/img/dentist-work.jpg",
     alt: "Dentist carrying out a procedure",
     label: "In Treatment",
-    stock: true,
   },
   {
     src: "/img/dental-detail.jpg",
     alt: "Close-up of a dental check-up",
     label: "Check-up",
-    stock: true,
   },
 ] as const;
 

@@ -11,7 +11,6 @@ import { WhyUs } from "@/components/WhyUs";
 import { ButtonLink } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section, SectionHeader } from "@/components/ui/Section";
-import { StockBadge, StockNote } from "@/components/ui/StockBadge";
 import { services } from "@/lib/data";
 
 export default function HomePage() {
@@ -141,7 +140,6 @@ export default function HomePage() {
             />
           </Reveal>
         </div>
-        <StockNote className="mt-6 text-center" />
       </Section>
 
       <Team />
@@ -184,7 +182,6 @@ function SpotlightCard({
           sizes="(max-width: 1024px) 100vw, 50vw"
           className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
         />
-        <StockBadge className="absolute top-3 right-3" />
       </div>
       <div className="flex flex-1 flex-col p-7">
         <p className="eyebrow">{eyebrow}</p>

@@ -4,7 +4,6 @@ import { clinic, team, testimonials } from "@/lib/data";
 import { Reveal } from "./ui/Reveal";
 import { Stars } from "./ui/Stars";
 import { Section, SectionHeader } from "./ui/Section";
-import { StockBadge } from "./ui/StockBadge";
 
 /* ── Testimonials ────────────────────────────────────────────────────────── */
 
@@ -67,7 +66,7 @@ export function Team() {
         />
       </Reveal>
 
-      {/* Team at work — representative stock photograph, no individuals named */}
+      {/* Team at work — one generic team photograph, no individuals named */}
       <Reveal delay={60}>
         <figure className="card surface-shadow mt-12 overflow-hidden">
           <div className="relative aspect-[21/9] w-full overflow-hidden bg-sand">
@@ -78,14 +77,10 @@ export function Team() {
               sizes="(max-width: 1152px) 100vw, 1152px"
               className="object-cover"
             />
-            <StockBadge className="absolute top-3 right-3" />
           </div>
-          <figcaption className="flex flex-col gap-1 px-6 py-4 sm:flex-row sm:items-center sm:justify-between">
+          <figcaption className="px-6 py-4">
             <p className="text-[13px] text-muted">
               Our dental and aesthetic team, working as one.
-            </p>
-            <p className="text-[11px] tracking-wide text-muted/70 uppercase">
-              Representative image
             </p>
           </figcaption>
         </figure>

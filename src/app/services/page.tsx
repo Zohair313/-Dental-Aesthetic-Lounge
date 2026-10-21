@@ -6,7 +6,6 @@ import { PageHeader } from "@/components/PageHeader";
 import { ServicesGrid } from "@/components/ServicesGrid";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section, SectionHeader } from "@/components/ui/Section";
-import { StockBadge } from "@/components/ui/StockBadge";
 import { services, type ServiceCategory } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -95,7 +94,6 @@ export default function ServicesPage() {
                   sizes="(max-width: 640px) 100vw, 50vw"
                   className="object-cover"
                 />
-                <StockBadge className="absolute top-3 right-3" />
               </div>
               <div className="relative h-56 overflow-hidden rounded-3xl border border-ink/8 bg-sand sm:h-72">
                 <Image
@@ -113,7 +111,6 @@ export default function ServicesPage() {
                   sizes="(max-width: 640px) 100vw, 50vw"
                   className="object-cover"
                 />
-                <StockBadge className="absolute top-3 right-3" />
               </div>
             </div>
           </Reveal>

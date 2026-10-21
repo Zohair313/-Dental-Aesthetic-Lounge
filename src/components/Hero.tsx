@@ -3,7 +3,6 @@ import { ShieldCheck, Sparkles, Stethoscope } from "lucide-react";
 import { clinic } from "@/lib/data";
 import { ButtonAnchor } from "./ui/Button";
 import { Stars } from "./ui/Stars";
-import { StockBadge } from "./ui/StockBadge";
 
 const highlights = [
   {
@@ -102,7 +101,6 @@ export function Hero() {
               sizes="(max-width: 1024px) 100vw, 46vw"
               className="object-cover"
             />
-            <StockBadge className="absolute top-3 right-3" />
           </div>
 
           {/* Floating rating card */}

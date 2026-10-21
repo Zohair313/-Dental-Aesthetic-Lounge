@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { clinicPhotos } from "@/lib/data";
 import { Reveal } from "./ui/Reveal";
-import { StockBadge, StockNote } from "./ui/StockBadge";
 
 const spans = [
   // 1 Reception — hero tile
@@ -43,15 +42,10 @@ export function ClinicGallery() {
               <span className="pointer-events-none absolute bottom-3 left-3 rounded-full bg-ink/70 px-3 py-1 text-[11px] font-semibold tracking-widest text-cream uppercase backdrop-blur-sm">
                 {photo.label}
               </span>
-              {"stock" in photo && photo.stock && (
-                <StockBadge className="absolute top-3 right-3" />
-              )}
             </div>
           </Reveal>
         ))}
       </div>
-
-      <StockNote className="mt-5" />
     </div>
   );
 }
